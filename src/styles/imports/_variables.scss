@@ -1,0 +1,16 @@
+:root {
+  --app-height: 100vh;
+
+  --main-bg-cl: #33392e;
+  --main-text-cl: #a3a18b;
+
+  --serif-fonts: 'Times New Roman', serif;
+  --sans-serif-fonts: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --jp-fonts: 'Helvetica Neue', Helvetica, Arial, 'Yu Gothic', YuGothic, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN',
+    Meiryo, sans-serif;
+}
+
+[data-theme='light'] {
+  --main-bg-cl: #eae8dc;
+  --main-text-cl: #3b720e;
+}
