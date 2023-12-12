@@ -1,8 +1,8 @@
 import React from 'react'
 
-const FirstView = () => {
+const FirstView = ({ refHeading }) => {
   return (
-    <section className='firstview'>
+    <section className='firstview' ref={refHeading}>
       <div className='firstview__container'>
         <div className='firstview__heading'>
           <h2>
