@@ -2,8 +2,7 @@ import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 
 /* ---------------------------------- page ---------------------------------- */
-import HomePage from 'src/pages/Home'
-import NotFoundPage from 'src/pages/NotFound'
+import { HomePage, NotFoundPage } from 'src/pages/page'
 
 const RoutesApp = () => {
   return (

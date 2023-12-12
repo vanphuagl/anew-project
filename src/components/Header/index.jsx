@@ -57,7 +57,7 @@ const Header = () => {
   }, [size.width, openMenu])
 
   const toggleMenu = (event) => {
-    event.preventDefault()
+    // event.preventDefault()
     setOpenMenu(!openMenu)
   }
 
@@ -93,9 +93,15 @@ const Header = () => {
 
       <div className={` ${'c-header__menu'} ${openMenu && size.width < 1023 ? `${'active'}` : ''} `}>
         <div className='top'>
-          <Link to='/#project'>projects</Link>
-          <Link to='/#philosophy'>philosophy</Link>
-          <Link to='/#company'>company</Link>
+          <Link to='/#project' onClick={toggleMenu}>
+            projects
+          </Link>
+          <Link to='/#philosophy' onClick={toggleMenu}>
+            philosophy
+          </Link>
+          <Link to='/#company' onClick={toggleMenu}>
+            company
+          </Link>
         </div>
 
         <div className='bottom'>
