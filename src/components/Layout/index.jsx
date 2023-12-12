@@ -5,8 +5,8 @@ import { BrowserRouter } from 'react-router-dom'
 import RoutesApp from 'src/routes/Routes'
 
 /* ------------------------------- components ------------------------------- */
-import Header from 'src/components/Header/header'
-import Footer from 'src/components/Footer/footer'
+import Header from 'src/components/Header'
+import Footer from 'src/components/Footer'
 
 const Layout = () => {
   return (

@@ -1,0 +1,45 @@
+@import 'src/styles/imports/mixins';
+
+.c-footer {
+  padding: 25px 30px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: baseline;
+
+  a,
+  p {
+    font-size: 1.6rem;
+  }
+
+  &__center {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__right {
+    text-align: right;
+  }
+
+  @include maxW(1023px) {
+    padding: 18px;
+    display: block;
+
+    a,
+    p {
+      font-size: 1.4rem;
+    }
+
+    &__left {
+      display: none;
+    }
+
+    &__center {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    &__right {
+      text-align: left;
+    }
+  }
+}
