@@ -22,7 +22,7 @@
   }
 
   @include maxW(1023px) {
-    padding: 18px;
+    padding: 15px 18px;
     display: block;
 
     a,
@@ -37,7 +37,7 @@
 
     &__center {
       display: block;
-      margin-bottom: 5px;
+      margin-bottom: 6px;
     }
 
     &__right {

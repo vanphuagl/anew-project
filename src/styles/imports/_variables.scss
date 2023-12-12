@@ -3,6 +3,7 @@
 
   --main-bg-cl: #33392e;
   --main-text-cl: #a3a18b;
+  --opacity: 0.3;
 
   --serif-fonts: 'Times New Roman', serif;
   --sans-serif-fonts: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -13,4 +14,5 @@
 [data-theme='light'] {
   --main-bg-cl: #eae8dc;
   --main-text-cl: #3b720e;
+  --opacity: 0.1;
 }

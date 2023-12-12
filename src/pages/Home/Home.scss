@@ -1,5 +1,6 @@
 @import 'src/styles/imports/mixins';
 
+// ======== FRIST VIEW
 .firstview {
   height: 100vh;
   position: relative;
@@ -30,6 +31,173 @@
         font-size: 2.8rem;
         letter-spacing: -0.56px;
         text-align: left;
+      }
+    }
+  }
+}
+
+// ======== Intro
+.intro {
+  &__container {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+    align-items: center;
+    padding: 120px 25px;
+
+    @include maxW(1023px) {
+      grid-template-columns: repeat(1, 1fr);
+      gap: unset;
+      padding: 175px 18px 30px;
+    }
+  }
+
+  &__left,
+  &__right {
+    margin: 0 auto;
+  }
+
+  &__left {
+    path,
+    rect {
+      fill: var(--main-text-cl);
+    }
+
+    @include maxW(1023px) {
+      svg {
+        width: 364px;
+        height: 318.65px;
+      }
+    }
+  }
+
+  &__right {
+    h2 {
+      font-size: 3.4rem;
+      font-weight: 400;
+      letter-spacing: -1.36px;
+      margin-bottom: 25px;
+    }
+
+    .top {
+      p {
+        font-size: 1.8rem;
+        letter-spacing: -1.08px;
+        font-family: 'Yu Gothic', YuGothic, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+
+        span {
+          font-size: 1.9rem;
+          letter-spacing: 0;
+        }
+      }
+    }
+
+    .bottom {
+      margin-top: 50px;
+      max-width: 500px;
+
+      p {
+        font-size: 1.6rem;
+        letter-spacing: -0.96px;
+        font-family: 'Yu Gothic', YuGothic, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+
+        span {
+          font-size: 1.7rem;
+          letter-spacing: 0;
+        }
+      }
+    }
+
+    @include maxW(1023px) {
+      text-align: center;
+      margin-top: 130px;
+
+      h2 {
+        font-size: 2.6rem;
+        letter-spacing: -0.52px;
+        margin-bottom: 10px;
+      }
+
+      .top {
+        p {
+          font-size: 1.5rem;
+          letter-spacing: -0.9px;
+
+          span {
+            font-size: 1.6rem;
+          }
+        }
+      }
+
+      .bottom {
+        max-width: 100%;
+
+        p {
+          font-size: 1.4rem;
+          letter-spacing: -0.84px;
+
+          span {
+            font-size: 1.5rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+// ======== Projects
+.projects {
+  &__container {
+    padding: 30px;
+
+    h2 {
+      font-size: 2.1rem;
+      font-weight: 400;
+      letter-spacing: -0.42px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    @include maxW(1023px) {
+      padding: 18px;
+
+      h2 {
+        font-size: 1.9rem;
+        letter-spacing: -0.19px;
+        margin-bottom: 15px;
+      }
+    }
+  }
+
+  &__showcase {
+    width: 100%;
+    height: 690px;
+    position: relative;
+
+    .items {
+      width: 100%;
+      height: 100%;
+      background-color: var(--main-text-cl);
+      opacity: var(--opacity);
+    }
+
+    p {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      font-size: 1.8rem;
+      letter-spacing: -0.36px;
+    }
+
+    @include maxW(1023px) {
+      height: 567px;
+
+      p {
+        font-size: 1.6rem;
+        letter-spacing: -0.16px;
       }
     }
   }
