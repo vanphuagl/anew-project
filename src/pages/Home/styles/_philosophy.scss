@@ -5,6 +5,10 @@
     padding: 0 30px;
     display: flex;
     gap: 80px;
+
+    @include maxW(1023px) {
+      display: block;
+    }
   }
 
   &__left {
@@ -65,8 +69,8 @@
     }
 
     p {
+      // font-family: 'Yu Gothic', YuGothic, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
       font-size: 1.8rem;
-      font-family: 'Yu Gothic', YuGothic, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
       letter-spacing: -3px;
     }
 
@@ -89,11 +93,11 @@
     margin-bottom: 130px;
 
     p {
+      // font-family: 'Yu Gothic', YuGothic, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
       font-size: 1.6rem;
       line-height: 1.5;
       margin-bottom: 35px;
       letter-spacing: -0.96px;
-      font-family: 'Yu Gothic', YuGothic, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
     }
   }
 
@@ -105,7 +109,7 @@
       margin-bottom: 35px;
 
       &:last-child {
-        margin-bottom: 0;
+        margin-bottom: initial;
       }
     }
   }

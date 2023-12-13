@@ -2,7 +2,7 @@ import React, { useEffect, useLayoutEffect, useRef } from 'react'
 
 /* ---------------------------------- gsap ---------------------------------- */
 import { gsap } from 'gsap'
-import { ScrollTrigger, Power2, ScrollToPlugin } from 'gsap/all'
+import { ScrollTrigger, Power2 } from 'gsap/all'
 
 /* --------------------------------- section -------------------------------- */
 import { FirstView, Intro, Projects, Philosophy, Company } from './Section'
@@ -81,7 +81,7 @@ const HomePage = () => {
       {/* <Intro refIntro={refQuery.intro} refOmoty={refQuery.omoty} /> */}
       <Projects />
       <Philosophy />
-      <Company />
+      {/* <Company /> */}
     </>
   )
 }

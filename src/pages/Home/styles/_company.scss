@@ -2,10 +2,15 @@
 .company {
   &__container {
     margin-top: 250px;
+    margin-bottom: 250px;
     padding: 0 30px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 21.5% 1fr 1fr;
     gap: 80px;
+
+    @include maxW(1023px) {
+      display: block;
+    }
   }
 
   &__left {
@@ -38,11 +43,34 @@
     }
   }
 
-  &__mission {
-    // display: none;
+  &__text {
+    font-size: 1.6rem;
+    font-weight: 400;
+    letter-spacing: -0.32px;
+    line-height: 1.5;
+    margin-bottom: 30px;
+  }
 
-    // &.active {
-    //   display: block;
-    // }
+  &__subtitle {
+    margin-bottom: 25px;
+  }
+
+  &__content {
+    margin-bottom: 80px;
+
+    h3 {
+      margin-bottom: initial;
+    }
+
+    p,
+    a {
+      font-size: 1.5rem;
+      line-height: 1.7;
+      letter-spacing: -0.45px;
+    }
+
+    a {
+      text-decoration: underline;
+    }
   }
 }
