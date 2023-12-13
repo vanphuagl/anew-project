@@ -1,12 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 import './Header.scss'
 
 const Header = () => {
+  const { pathname } = useLocation()
   const toggleRef = useRef(null)
   const [checked, setChecked] = useState(true)
   const [openMenu, setOpenMenu] = useState(false)
+  console.log('openMenu', openMenu)
   const [size, setSize] = useState({
     width: 0,
     height: 0
@@ -53,6 +55,7 @@ const Header = () => {
   }, [])
 
   useEffect(() => {
+    console.log(size.width)
     if (size.width > 1023 && openMenu) {
       setOpenMenu(false)
     }
@@ -64,33 +67,45 @@ const Header = () => {
   }
 
   // ===== click link =====
+  const scrollToTop = () => {
+    if (pathname === '/') {
+      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+    }
+  }
 
-  const handleLinkProjects = () => {
-    document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })
-  }
-  const handleLinkPhilosophy = () => {
-    document.getElementById('philosophy').scrollIntoView({ behavior: 'smooth' })
-  }
-  const handleLinkCompany = () => {
-    document.getElementById('company').scrollIntoView({ behavior: 'smooth' })
+  const handleLink = (path) => {
+    switch (path) {
+      case 'projects':
+        document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })
+        break
+      case 'philosophy':
+        document.getElementById('philosophy').scrollIntoView({ behavior: 'smooth' })
+        break
+      case 'company':
+        document.getElementById('company').scrollIntoView({ behavior: 'smooth' })
+        break
+
+      default:
+        break
+    }
   }
 
   // ===== return =====
   return (
     <>
       <header className='c-header'>
-        <Link to='/' className='c-header__left'>
+        <Link to='/' className='c-header__left' onClick={scrollToTop}>
           <h1>anew inc.</h1>
         </Link>
 
         <div className='c-header__center'>
-          <Link to='/#projects' onClick={handleLinkProjects}>
+          <Link to='/#projects' onClick={() => handleLink('projects')}>
             projects,
           </Link>
-          <Link to='/#philosophy' onClick={handleLinkPhilosophy}>
+          <Link to='/#philosophy' onClick={() => handleLink('philosophy')}>
             philosophy,
           </Link>
-          <Link to='/#company' onClick={handleLinkCompany}>
+          <Link to='/#company' onClick={() => handleLink('company')}>
             company
           </Link>
         </div>
@@ -114,10 +129,10 @@ const Header = () => {
       <div className={` ${'c-header__menu'} ${openMenu && size.width < 1023 ? `${'active'}` : ''} `}>
         <div className='top'>
           <Link
-            to='/#project'
+            to='/#projects'
             onClick={() => {
               toggleMenu()
-              handleLinkProjects()
+              handleLink('projects')
             }}
           >
             projects
@@ -126,7 +141,7 @@ const Header = () => {
             to='/#philosophy'
             onClick={() => {
               toggleMenu()
-              handleLinkPhilosophy()
+              handleLink('philosophy')
             }}
           >
             philosophy
@@ -135,7 +150,7 @@ const Header = () => {
             to='/#company'
             onClick={() => {
               toggleMenu()
-              handleLinkCompany()
+              handleLink('company')
             }}
           >
             company
