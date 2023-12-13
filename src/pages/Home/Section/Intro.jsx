@@ -2,7 +2,7 @@ import React from 'react'
 
 const Intro = ({ refIntro, refOmoty }) => {
   return (
-    <section className='intro' ref={refIntro}>
+    <section className='intro pc-only' ref={refIntro}>
       <div className='intro__container'>
         <div className='intro__left'>
           <div className='intro__omoty' ref={refOmoty}>
