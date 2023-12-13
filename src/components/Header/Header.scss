@@ -10,12 +10,14 @@
   padding: 25px 30px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  gap: 80px;
   align-items: baseline;
 
   @include maxW(1023px) {
     padding: 15px 18px;
     display: flex;
     justify-content: space-between;
+    gap: unset;
   }
 
   &__left {

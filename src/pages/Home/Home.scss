@@ -14,7 +14,7 @@
     padding: 0 18px;
 
     h2 {
-      font-family: var(--serif-fonts);
+      font-family: var(--times-fonts);
       font-size: 4.4rem;
       font-weight: 400;
       text-align: center;
@@ -38,32 +38,39 @@
 
 // ======== Intro
 .intro {
+  margin-bottom: 150px;
+
   &__container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 50px;
+    display: flex;
+    gap: 20px;
     align-items: center;
-    padding: 120px 25px;
 
     position: relative;
     width: 100%;
-    min-height: 100vh;
+    height: 100vh;
 
     @include maxW(1023px) {
-      grid-template-columns: repeat(1, 1fr);
+      display: block;
       gap: unset;
-      padding: 175px 18px 30px;
     }
   }
 
   &__left,
   &__right {
-    margin: 0 auto;
+    width: 50%;
+    height: 100%;
     overflow: hidden;
     position: relative;
+    display: flex;
+    align-items: center;
   }
 
   &__left {
+  }
+
+  &__omoty {
+    margin: 0 auto;
+
     path,
     rect {
       fill: var(--main-text-cl);
@@ -77,15 +84,6 @@
     }
   }
 
-  .panel {
-    height: 100vh;
-    width: 100%;
-    margin-left: auto;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-
   &__right {
     h2 {
       font-size: 3.4rem;
@@ -93,6 +91,22 @@
       letter-spacing: -1.36px;
       margin-bottom: 25px;
     }
+
+    .panel {
+      width: 100%;
+      height: 100vh;
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    // .fake {
+    //   height: 5vh;
+    // }
 
     .top {
       p {
@@ -108,7 +122,6 @@
     }
 
     .bottom {
-      height: 100vh;
       max-width: 500px;
 
       p {
@@ -214,5 +227,167 @@
         letter-spacing: -0.16px;
       }
     }
+  }
+}
+
+// ======== Philosophy
+.philosophy {
+  &__container {
+    margin-top: 250px;
+    padding: 0 30px;
+    display: flex;
+    gap: 80px;
+  }
+
+  &__left {
+    width: 60.87%;
+    overflow: hidden;
+    position: sticky;
+    top: 60px;
+    left: 0;
+    height: 100%;
+
+    h2 {
+      position: absolute;
+      top: 0;
+      font-size: 2.1rem;
+      font-weight: 400;
+      letter-spacing: -0.42px;
+    }
+
+    p {
+      position: absolute;
+      bottom: -5px;
+      font-size: 3rem;
+      letter-spacing: -0.6px;
+    }
+  }
+
+  &__right {
+    flex: 1;
+  }
+
+  &__bg {
+    position: relative;
+
+    svg {
+      width: 100%;
+      // height: calc(100vh - 153px);
+      height: 100%;
+      display: block;
+
+      path,
+      rect {
+        fill: currentColor;
+      }
+    }
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    margin-bottom: 110px;
+
+    h2 {
+      font-size: 3.4rem;
+      font-weight: 400;
+      letter-spacing: -1.36px;
+      line-height: 1.1;
+    }
+
+    p {
+      font-size: 1.8rem;
+      font-family: 'Yu Gothic', YuGothic, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+      letter-spacing: -3px;
+    }
+
+    .vertical {
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .line {
+      width: 1px;
+      height: 25px;
+      background-color: currentColor;
+    }
+  }
+
+  &__mid {
+    margin-bottom: 130px;
+
+    p {
+      font-size: 1.6rem;
+      line-height: 1.5;
+      margin-bottom: 35px;
+      letter-spacing: -0.96px;
+      font-family: 'Yu Gothic', YuGothic, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+    }
+  }
+
+  &__bot {
+    p {
+      font-size: 1.7rem;
+      line-height: 1.5;
+      letter-spacing: -0.34px;
+      margin-bottom: 35px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+// ======== Company
+.company {
+  &__container {
+    margin-top: 250px;
+    padding: 0 30px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 80px;
+  }
+
+  &__left {
+    h2 {
+      margin-bottom: 30px;
+      font-size: 2.1rem;
+      letter-spacing: -0.42px;
+      line-height: 1.2;
+      font-weight: 400;
+    }
+  }
+
+  &__lang {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--times-fonts);
+
+    p,
+    span {
+      cursor: pointer;
+      font-size: 1.7rem;
+      opacity: 0.3;
+      transition: 0.15s linear;
+      text-transform: uppercase;
+
+      &.active {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__mission {
+    // display: none;
+
+    // &.active {
+    //   display: block;
+    // }
   }
 }

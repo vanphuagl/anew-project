@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Intro = ({ refIntro, refOmoty, refPanel }) => {
+const Intro = ({ refIntro, refOmoty }) => {
   return (
     <section className='intro' ref={refIntro}>
       <div className='intro__container'>
         <div className='intro__left'>
-          <div ref={refOmoty}>
+          <div className='intro__omoty' ref={refOmoty}>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               xmlnsXlink='http://www.w3.org/1999/xlink'

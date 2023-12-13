@@ -4,6 +4,7 @@
   padding: 25px 30px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  gap: 80px;
   align-items: baseline;
 
   a,
@@ -24,6 +25,7 @@
   @include maxW(1023px) {
     padding: 15px 18px;
     display: block;
+    gap: unset;
 
     a,
     p {
