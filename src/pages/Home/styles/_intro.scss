@@ -1,0 +1,136 @@
+// ======== Intro
+.intro {
+  margin-bottom: 150px;
+
+  &__container {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+
+    position: relative;
+    width: 100%;
+    height: 100vh;
+
+    @include maxW(1023px) {
+      display: block;
+      gap: unset;
+    }
+  }
+
+  &__left,
+  &__right {
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  &__left {
+  }
+
+  &__omoty {
+    margin: 0 auto;
+
+    path,
+    rect {
+      fill: var(--main-text-cl);
+    }
+
+    @include maxW(1023px) {
+      svg {
+        width: 364px;
+        height: 318.65px;
+      }
+    }
+  }
+
+  &__right {
+    h2 {
+      font-size: 3.4rem;
+      font-weight: 400;
+      letter-spacing: -1.36px;
+      margin-bottom: 25px;
+    }
+
+    .panel {
+      width: 100%;
+      height: 100vh;
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    // .fake {
+    //   height: 5vh;
+    // }
+
+    .top {
+      p {
+        font-size: 1.8rem;
+        letter-spacing: -1.08px;
+        font-family: 'Yu Gothic', YuGothic, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+
+        span {
+          font-size: 1.9rem;
+          letter-spacing: 0;
+        }
+      }
+    }
+
+    .bottom {
+      max-width: 500px;
+
+      p {
+        font-size: 1.6rem;
+        letter-spacing: -0.96px;
+        font-family: 'Yu Gothic', YuGothic, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+
+        span {
+          font-size: 1.7rem;
+          letter-spacing: 0;
+        }
+      }
+    }
+
+    @include maxW(1023px) {
+      text-align: center;
+      margin-top: 130px;
+
+      h2 {
+        font-size: 2.6rem;
+        letter-spacing: -0.52px;
+        margin-bottom: 10px;
+      }
+
+      .top {
+        p {
+          font-size: 1.5rem;
+          letter-spacing: -0.9px;
+
+          span {
+            font-size: 1.6rem;
+          }
+        }
+      }
+
+      .bottom {
+        max-width: 100%;
+
+        p {
+          font-size: 1.4rem;
+          letter-spacing: -0.84px;
+
+          span {
+            font-size: 1.5rem;
+          }
+        }
+      }
+    }
+  }
+}
