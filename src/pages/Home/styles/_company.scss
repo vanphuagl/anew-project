@@ -1,8 +1,7 @@
 // ======== Company
 .company {
   &__container {
-    margin-top: 250px;
-    margin-bottom: 250px;
+    margin: 220px 0;
     padding: 0 30px;
     display: grid;
     grid-template-columns: 21.5% 1fr 1fr;
@@ -10,6 +9,9 @@
 
     @include maxW(1023px) {
       display: block;
+      margin-top: 100px;
+      margin-bottom: 65px;
+      padding: 50px 18px 0;
     }
   }
 
@@ -20,6 +22,16 @@
       letter-spacing: -0.42px;
       line-height: 1.2;
       font-weight: 400;
+    }
+
+    @include maxW(1023px) {
+      margin-bottom: 70px;
+
+      h2 {
+        margin-bottom: 15px;
+        font-size: 1.8rem;
+        letter-spacing: -0.18px;
+      }
     }
   }
 
@@ -41,6 +53,13 @@
         opacity: 1;
       }
     }
+
+    @include maxW(1023px) {
+      p,
+      span {
+        font-size: 1.6rem;
+      }
+    }
   }
 
   &__text {
@@ -49,10 +68,11 @@
     letter-spacing: -0.32px;
     line-height: 1.5;
     margin-bottom: 30px;
-  }
 
-  &__subtitle {
-    margin-bottom: 25px;
+    @include maxW(1023px) {
+      font-size: 1.5rem;
+      letter-spacing: 0;
+    }
   }
 
   &__content {
@@ -71,6 +91,32 @@
 
     a {
       text-decoration: underline;
+    }
+
+    @include maxW(1023px) {
+      margin-bottom: 65px;
+
+      p,
+      a {
+        font-size: 1.3rem;
+        letter-spacing: 0;
+      }
+    }
+  }
+
+  &__subtitle {
+    margin-bottom: 25px;
+
+    @include maxW(1023px) {
+      p {
+        font-size: 1.4rem;
+      }
+    }
+  }
+
+  &__member {
+    @include maxW(1023px) {
+      margin-bottom: 65px;
     }
   }
 }

@@ -13,6 +13,7 @@ const Header = () => {
   })
 
   // ===== toggle theme =====
+
   useEffect(() => {
     let currentTheme = localStorage.getItem('data-theme')
     if (!currentTheme) currentTheme = 'dark'
@@ -38,6 +39,7 @@ const Header = () => {
   }
 
   // ===== toggle menu =====
+
   useEffect(() => {
     const handleResize = () => {
       setSize({
@@ -61,6 +63,18 @@ const Header = () => {
     setOpenMenu(!openMenu)
   }
 
+  // ===== click link =====
+
+  const handleLinkProjects = () => {
+    document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })
+  }
+  const handleLinkPhilosophy = () => {
+    document.getElementById('philosophy').scrollIntoView({ behavior: 'smooth' })
+  }
+  const handleLinkCompany = () => {
+    document.getElementById('company').scrollIntoView({ behavior: 'smooth' })
+  }
+
   // ===== return =====
   return (
     <>
@@ -70,9 +84,15 @@ const Header = () => {
         </Link>
 
         <div className='c-header__center'>
-          <Link to='/#project'>projects,</Link>
-          <Link to='/#philosophy'>philosophy,</Link>
-          <Link to='/#company'>company</Link>
+          <Link to='/#projects' onClick={handleLinkProjects}>
+            projects,
+          </Link>
+          <Link to='/#philosophy' onClick={handleLinkPhilosophy}>
+            philosophy,
+          </Link>
+          <Link to='/#company' onClick={handleLinkCompany}>
+            company
+          </Link>
         </div>
 
         <div className='c-header__right'>
@@ -93,13 +113,31 @@ const Header = () => {
 
       <div className={` ${'c-header__menu'} ${openMenu && size.width < 1023 ? `${'active'}` : ''} `}>
         <div className='top'>
-          <Link to='/#project' onClick={toggleMenu}>
+          <Link
+            to='/#project'
+            onClick={() => {
+              toggleMenu()
+              handleLinkProjects()
+            }}
+          >
             projects
           </Link>
-          <Link to='/#philosophy' onClick={toggleMenu}>
+          <Link
+            to='/#philosophy'
+            onClick={() => {
+              toggleMenu()
+              handleLinkPhilosophy()
+            }}
+          >
             philosophy
           </Link>
-          <Link to='/#company' onClick={toggleMenu}>
+          <Link
+            to='/#company'
+            onClick={() => {
+              toggleMenu()
+              handleLinkCompany()
+            }}
+          >
             company
           </Link>
         </div>

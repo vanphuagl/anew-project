@@ -1,3 +1,5 @@
+@import 'src/styles/imports/mixins';
+
 .accordion {
   display: flex;
   flex-direction: column;
@@ -10,6 +12,16 @@
 
     .accordion__content {
       font-size: 1.5rem;
+    }
+
+    @include maxW(1023px) {
+      p {
+        font-size: 1.5rem;
+      }
+
+      .accordion__content {
+        font-size: 1.4rem;
+      }
     }
   }
 
@@ -29,6 +41,12 @@
 
   &__icon {
     transition: 0.15s linear;
+
+    svg {
+      line {
+        stroke: currentColor;
+      }
+    }
   }
 
   &__header {
@@ -49,6 +67,16 @@
     p {
       font-size: 1.5rem;
     }
+
+    @include maxW(1023px) {
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      p {
+        font-size: 1.4rem;
+      }
+    }
   }
 
   &__content {
@@ -65,6 +93,14 @@
 
     &-body {
       padding-top: 25px;
+    }
+
+    @include maxW(1023px) {
+      font-size: 1.3rem;
+
+      span {
+        font-size: 1.4rem;
+      }
     }
   }
 }

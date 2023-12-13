@@ -81,7 +81,7 @@ const HomePage = () => {
       {/* <Intro refIntro={refQuery.intro} refOmoty={refQuery.omoty} /> */}
       <Projects />
       <Philosophy />
-      {/* <Company /> */}
+      <Company />
     </>
   )
 }

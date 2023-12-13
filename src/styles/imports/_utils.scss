@@ -3,5 +3,20 @@
 }
 
 .jp-fonts {
-    font-family: var(--jp-fonts);
+  font-family: var(--jp-fonts);
+}
+
+.sp-only,
+.is-hidden {
+  display: none !important;
+}
+
+@include maxW(1023px) {
+  .pc-only {
+    display: none !important;
+  }
+
+  .sp-only {
+    display: block !important;
+  }
 }

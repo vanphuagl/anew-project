@@ -8,6 +8,8 @@
 
     @include maxW(1023px) {
       display: block;
+      margin-top: 150px;
+      padding: 50px 18px 0;
     }
   }
 
@@ -25,32 +27,63 @@
       font-size: 2.1rem;
       font-weight: 400;
       letter-spacing: -0.42px;
+      z-index: 10;
     }
 
-    p {
-      position: absolute;
-      bottom: -5px;
-      font-size: 3rem;
-      letter-spacing: -0.6px;
+    @include maxW(1023px) {
+      width: 100%;
+      position: relative;
+      top: 0;
+
+      h2 {
+        font-size: 1.9rem;
+        letter-spacing: -0.19px;
+      }
     }
   }
 
   &__right {
     flex: 1;
+
+    @include maxW(1023px) {
+      margin-top: 70px;
+    }
+  }
+
+  &__weare {
+    position: absolute;
+    // bottom: -5px;
+    bottom: 0;
+    left: 0;
+    font-size: 3rem;
+    letter-spacing: -0.6px;
+
+    @include maxW(1023px) {
+      position: initial;
+      font-size: 2.4rem;
+      letter-spacing: -0.24px;
+    }
   }
 
   &__bg {
     position: relative;
 
     svg {
-      width: 100%;
-      // height: calc(100vh - 153px);
-      height: 100%;
       display: block;
+      width: 100%;
+      // height: 100%;
+      // height: calc(100vh - 153px);
 
       path,
       rect {
         fill: currentColor;
+      }
+    }
+
+    @include maxW(1023px) {
+      svg {
+        width: 100%;
+        height: 100%;
       }
     }
   }
@@ -79,13 +112,36 @@
       text-orientation: mixed;
       display: flex;
       align-items: center;
-      gap: 15px;
+      margin-bottom: 15px;
     }
 
     .line {
       width: 1px;
       height: 25px;
       background-color: currentColor;
+    }
+
+    @include maxW(1023px) {
+      gap: 25px;
+      margin-bottom: 70px;
+
+      h2 {
+        font-size: 2.8rem;
+        line-height: -1.12px;
+      }
+
+      p {
+        font-size: 1.5rem;
+        letter-spacing: -0.9px;
+      }
+
+      .vertical {
+        margin-bottom: 5px;
+      }
+
+      .line {
+        height: 18px;
+      }
     }
   }
 
@@ -99,6 +155,16 @@
       margin-bottom: 35px;
       letter-spacing: -0.96px;
     }
+
+    @include maxW(1023px) {
+      margin-bottom: 85px;
+
+      p {
+        font-size: 1.4rem;
+        letter-spacing: -0.84px;
+        margin-bottom: 30px;
+      }
+    }
   }
 
   &__bot {
@@ -110,6 +176,21 @@
 
       &:last-child {
         margin-bottom: initial;
+      }
+    }
+
+    @include maxW(1023px) {
+      margin-bottom: 75px;
+
+      .line {
+        font-size: 1.4rem;
+        margin-bottom: 25px;
+      }
+
+      p {
+        font-size: 1.5rem;
+        letter-spacing: 0;
+        margin-bottom: 30px;
       }
     }
   }

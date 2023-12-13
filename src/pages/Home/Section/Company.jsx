@@ -10,7 +10,7 @@ const Company = () => {
   const [isLangugage, setIsLangugage] = useState('jp')
 
   return (
-    <section className='company'>
+    <section className='company' id='company'>
       <div className='company__container'>
         <div className='company__left'>
           <h2>
@@ -52,7 +52,7 @@ const Company = () => {
             </div>
           </div>
 
-          <div className='company__content'>
+          <div className='company__content pc-only'>
             <h2 className='company__text'>( INFO )</h2>
 
             <div className='company__subtitle'>
@@ -78,8 +78,8 @@ const Company = () => {
         </div>
 
         <div className='company__right'>
-          <h2 className='company__text'>( MEMBER )</h2>
           <div className='company__member'>
+            <h2 className='company__text'>( MEMBER )</h2>
             {data.map((items, i) => (
               <Accordion
                 title={items.title}
@@ -90,6 +90,30 @@ const Company = () => {
                 {isLangugage === 'jp' ? items.textJp : items.textEn}
               </Accordion>
             ))}
+          </div>
+
+          <div className='company__content sp-only'>
+            <h2 className='company__text'>( INFO )</h2>
+
+            <div className='company__subtitle'>
+              <h3 className='company__text'>anew inc.</h3>
+              {isLangugage === 'jp' && <p>株式会社アニュウインク</p>}
+            </div>
+
+            <div className='company__desc'>
+              {isLangugage === 'jp' ? (
+                <>
+                  <p>東京都中央区⽇本橋⼩⾈町14-7</p>
+                  <p>Soil Nihonbashi 2F Soil Work</p>
+                </>
+              ) : (
+                <>
+                  <p>Soil Nihonbashi 2F Soil Work, 14-7, Kobunacho,</p>
+                  <p>Nihonbashi, Chuo-ku, Tokyo</p>
+                </>
+              )}
+              <Link to='mailto:info@anew-inc.com'>info@anew-inc.com</Link>
+            </div>
           </div>
         </div>
       </div>

@@ -39,3 +39,8 @@ body {
 main {
   flex: 1;
 }
+
+::selection {
+  background: var(--main-text-cl);
+  color: #fff;
+}
