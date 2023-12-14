@@ -17,17 +17,8 @@
     }
   }
 
-  &__left,
-  &__right {
-    width: 50%;
-    height: 100%;
-    overflow: hidden;
-    position: relative;
-    display: flex;
-    align-items: center;
-  }
-
-  &__left {
+  @include maxW(1023px) {
+    margin-bottom: 150px;
   }
 
   &__omoty {
@@ -53,6 +44,29 @@
     }
   }
 
+  &__left,
+  &__right {
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    @include maxW(1023px) {
+      width: 100%;
+    }
+  }
+
+  &__left {
+    @include maxW(1023px) {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -55%);
+    }
+  }
+
   &__right {
     h2 {
       font-size: 3.4rem;
@@ -61,28 +75,16 @@
       margin-bottom: 25px;
     }
 
-    .panel {
-      width: 100%;
-      height: 100vh;
-      position: absolute;
-      top: 0;
-      left: 0;
-
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-
-      opacity: 0;
-      transition: opacity 0.2s ease-in-out;
-
-      &.is-active {
-        opacity: 1;
+    @include maxW(1023px) {
+      h2 {
+        font-size: 2.6rem;
+        letter-spacing: -0.52px;
+        margin-bottom: 10px;
       }
     }
 
     .top {
       p {
-        // font-family: 'Yu Gothic', YuGothic, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
         font-size: 1.8rem;
         letter-spacing: -1.08px;
 
@@ -91,34 +93,10 @@
           letter-spacing: 0;
         }
       }
-    }
 
-    .bottom {
-      max-width: 500px;
+      @include maxW(1023px) {
+        text-align: center;
 
-      p {
-        // font-family: 'Yu Gothic', YuGothic, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
-        font-size: 1.6rem;
-        letter-spacing: -0.96px;
-
-        span {
-          font-size: 1.7rem;
-          letter-spacing: 0;
-        }
-      }
-    }
-
-    @include maxW(1023px) {
-      text-align: center;
-      margin-top: 130px;
-
-      h2 {
-        font-size: 2.6rem;
-        letter-spacing: -0.52px;
-        margin-bottom: 10px;
-      }
-
-      .top {
         p {
           font-size: 1.5rem;
           letter-spacing: -0.9px;
@@ -128,9 +106,24 @@
           }
         }
       }
+    }
 
-      .bottom {
+    .bottom {
+      max-width: 500px;
+
+      p {
+        font-size: 1.6rem;
+        letter-spacing: -0.96px;
+
+        span {
+          font-size: 1.7rem;
+          letter-spacing: 0;
+        }
+      }
+
+      @include maxW(1023px) {
         max-width: 100%;
+        line-height: 1.5;
 
         p {
           font-size: 1.4rem;
@@ -141,6 +134,34 @@
           }
         }
       }
+    }
+  }
+
+  &__panel {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+
+    padding: 0 18px;
+
+    &.is-active {
+      opacity: 1;
+    }
+
+    @include maxW(1023px) {
+      display: block;
+      height: auto;
+      top: auto;
+      bottom: 30px;
     }
   }
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useRef } from 'react'
+import React, { useLayoutEffect, useRef } from 'react'
 
 /* ---------------------------------- gsap ---------------------------------- */
 import { gsap } from 'gsap'
@@ -21,7 +21,7 @@ const HomePage = () => {
     let currentIndex = 0
 
     const ctx = gsap.context(() => {
-      const panels = gsap.utils.toArray('.panel')
+      const panels = gsap.utils.toArray('.intro__panel')
       gsap.set(panels, {
         yPercent: (i) => (i ? 100 : 0)
       })
@@ -40,7 +40,7 @@ const HomePage = () => {
             trigger: refQuery.intro.current,
             start: 'top center-=250',
             toggleActions: 'play none none reverse',
-            markers: true,
+            // markers: true,
             onEnter: function () {
               refQuery.omoty.current.classList.add('is-active')
               panels[0].classList.add('is-active')
@@ -60,7 +60,7 @@ const HomePage = () => {
           end: () => '+=' + 100 * panels.length + '%',
           pin: true,
           scrub: 1,
-          markers: true,
+          // markers: true,
           onEnter: function () {
             refQuery.omoty.current.classList.add('is-active')
             panels[0].classList.add('is-active')

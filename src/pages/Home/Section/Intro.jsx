@@ -2,7 +2,7 @@ import React from 'react'
 
 const Intro = ({ refIntro, refOmoty }) => {
   return (
-    <section className='intro pc-only' ref={refIntro}>
+    <section className='intro' ref={refIntro}>
       <div className='intro__container'>
         <div className='intro__left'>
           <div className='intro__omoty' ref={refOmoty}>
@@ -674,14 +674,14 @@ const Intro = ({ refIntro, refOmoty }) => {
         </div>
 
         <div className='intro__right'>
-          <div className='top panel'>
+          <div className='intro__panel top'>
             <h2 className='times-fonts'>One mile, One thousand years.</h2>
             <p>
               <span className='jp-fonts'>1,000</span>年先の未来を想像しながら、身の回りから変化を。
             </p>
           </div>
 
-          <div className='bottom panel'>
+          <div className='intro__panel bottom'>
             <p>
               <span className='jp-fonts'>anew</span>
               はプロダクトサステナビリティの観点から、「私たちはいかにしてよき祖先となれるか」というグッドアンセスターとしての可能性を追求するプロジェクトチームです。環境危機・⽂化・経済といったコンテクストへの考察を起点に、ものにまつわるデザインやマテリアルのリサーチを進め、これからの社会にふさわしい低環境負荷のプロダクトを研究開発していきます。
