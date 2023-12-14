@@ -110,6 +110,7 @@
 
     .bottom {
       max-width: 500px;
+      line-height: 1.5;
 
       p {
         font-size: 1.6rem;
@@ -123,7 +124,6 @@
 
       @include maxW(1023px) {
         max-width: 100%;
-        line-height: 1.5;
 
         p {
           font-size: 1.4rem;
