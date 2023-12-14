@@ -8,7 +8,6 @@ const Header = () => {
   const toggleRef = useRef(null)
   const [checked, setChecked] = useState(true)
   const [openMenu, setOpenMenu] = useState(false)
-  console.log('openMenu', openMenu)
   const [size, setSize] = useState({
     width: 0,
     height: 0
@@ -49,24 +48,25 @@ const Header = () => {
         height: window.innerHeight
       })
     }
+
     window.addEventListener('resize', handleResize)
 
     return () => window.removeEventListener('resize', handleResize)
   }, [])
 
   useEffect(() => {
-    console.log(size.width)
     if (size.width > 1023 && openMenu) {
       setOpenMenu(false)
     }
   }, [size.width, openMenu])
 
-  const toggleMenu = (event) => {
-    // event.preventDefault()
+  const toggleMenu = (e) => {
+    // e.preventDefault()
     setOpenMenu(!openMenu)
   }
 
   // ===== click link =====
+  
   const scrollToTop = () => {
     if (pathname === '/') {
       window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
@@ -89,6 +89,19 @@ const Header = () => {
         break
     }
   }
+
+  // ====== height 100vh =====
+
+  useEffect(() => {
+    const appHeight = () => {
+      document.documentElement.style.setProperty('--app-height', `${document.documentElement.clientHeight}px`)
+      // height menu
+      const windowHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
+      document.querySelector('.c-header__menu').style.height = windowHeight + 'px'
+    }
+    window.addEventListener('resize', appHeight)
+    return () => window.removeEventListener('resize', appHeight)
+  }, [])
 
   // ===== return =====
   return (

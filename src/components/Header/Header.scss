@@ -127,10 +127,11 @@
         width: 30px;
         height: 16px;
 
+        margin: -2px;
+
         &:before {
           width: 10px;
           height: 10px;
-          margin: 0;
         }
 
         &:checked:before {

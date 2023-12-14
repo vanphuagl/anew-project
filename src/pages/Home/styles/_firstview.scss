@@ -1,6 +1,7 @@
 // ======== FRIST VIEW
 .firstview {
   height: 100vh;
+  height: var(--app-height);
   position: relative;
 
   &__container {
