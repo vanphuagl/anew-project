@@ -10,6 +10,7 @@
     position: relative;
     width: 100%;
     height: 100vh;
+    height: var(--app-height);
 
     @include maxW(1023px) {
       display: block;
@@ -71,14 +72,14 @@
     h2 {
       font-size: 3.4rem;
       font-weight: 400;
-      letter-spacing: -1.36px;
+      // letter-spacing: -1.36px;
       margin-bottom: 25px;
     }
 
     @include maxW(1023px) {
       h2 {
         font-size: 2.6rem;
-        letter-spacing: -0.52px;
+        // letter-spacing: -0.52px;
         margin-bottom: 10px;
       }
     }
@@ -86,7 +87,7 @@
     .top {
       p {
         font-size: 1.8rem;
-        letter-spacing: -1.08px;
+        // letter-spacing: -1.08px;
 
         span {
           font-size: 1.9rem;
@@ -99,7 +100,7 @@
 
         p {
           font-size: 1.5rem;
-          letter-spacing: -0.9px;
+          // letter-spacing: -0.9px;
 
           span {
             font-size: 1.6rem;
@@ -114,7 +115,7 @@
 
       p {
         font-size: 1.6rem;
-        letter-spacing: -0.96px;
+        // letter-spacing: -0.96px;
 
         span {
           font-size: 1.7rem;
@@ -127,7 +128,7 @@
 
         p {
           font-size: 1.4rem;
-          letter-spacing: -0.84px;
+          // letter-spacing: -0.84px;
 
           span {
             font-size: 1.5rem;
@@ -140,6 +141,7 @@
   &__panel {
     width: 100%;
     height: 100vh;
+    height: var(--app-height);
     position: absolute;
     top: 0;
     left: 0;

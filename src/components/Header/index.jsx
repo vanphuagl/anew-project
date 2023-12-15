@@ -66,7 +66,7 @@ const Header = () => {
   }
 
   // ===== click link =====
-  
+
   const scrollToTop = () => {
     if (pathname === '/') {
       window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
@@ -92,16 +92,20 @@ const Header = () => {
 
   // ====== height 100vh =====
 
+
   useEffect(() => {
     const appHeight = () => {
-      document.documentElement.style.setProperty('--app-height', `${document.documentElement.clientHeight}px`)
+      const doc = document.documentElement
+      doc.style.setProperty('--app-height', `${document.documentElement.clientHeight}px`)
       // height menu
       const windowHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
       document.querySelector('.c-header__menu').style.height = windowHeight + 'px'
     }
+    appHeight();
     window.addEventListener('resize', appHeight)
     return () => window.removeEventListener('resize', appHeight)
   }, [])
+
 
   // ===== return =====
   return (

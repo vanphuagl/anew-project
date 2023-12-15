@@ -6,7 +6,7 @@
     h2 {
       font-size: 2.1rem;
       font-weight: 400;
-      letter-spacing: -0.42px;
+      // letter-spacing: -0.42px;
       text-transform: uppercase;
       margin-bottom: 20px;
     }
@@ -16,8 +16,8 @@
 
       h2 {
         font-size: 1.9rem;
-        letter-spacing: -0.19px;
         margin-bottom: 15px;
+        // letter-spacing: -0.19px;
       }
     }
   }
@@ -41,7 +41,7 @@
       transform: translate(-50%, -50%);
 
       font-size: 1.8rem;
-      letter-spacing: -0.36px;
+      // letter-spacing: -0.36px;
     }
 
     @include maxW(1023px) {
@@ -49,7 +49,7 @@
 
       p {
         font-size: 1.6rem;
-        letter-spacing: -0.16px;
+        // letter-spacing: -0.16px;
       }
     }
   }
