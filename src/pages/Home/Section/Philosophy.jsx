@@ -84,7 +84,7 @@ const Philosophy = () => {
 
             <div className='vertical'>
               <div className='line'></div>
-              <p>矛 盾 を 楽 し む</p>
+              <p>矛盾を楽しむ</p>
             </div>
           </div>
 
@@ -100,7 +100,7 @@ const Philosophy = () => {
           </div>
 
           <div className='philosophy__bot'>
-            <div className='line sp-only'>－</div>
+            <div className='line'>－</div>
 
             <p>
               For example, we love making things whereas making more things causes a burden on the global environment.
