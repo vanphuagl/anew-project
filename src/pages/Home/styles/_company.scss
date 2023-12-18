@@ -87,6 +87,7 @@
 
     a {
       text-decoration: underline;
+      width: fit-content;
     }
 
     @include maxW(1023px) {
