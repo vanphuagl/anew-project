@@ -32,6 +32,11 @@
       opacity: 1;
     }
 
+    svg {
+      width: 36.15vw;
+      height: auto;
+    }
+
     path,
     rect {
       fill: var(--main-text-cl);
@@ -70,9 +75,10 @@
 
   &__right {
     h2 {
-      font-size: 3.4rem;
+      font-size: 2.4vw;
       font-weight: 400;
       margin-bottom: 25px;
+      text-align: center;
     }
 
     @include maxW(1023px) {
@@ -84,7 +90,8 @@
 
     .top {
       p {
-        font-size: 1.8rem;
+        font-size: 1.3vw;
+        text-align: center;
 
         span {
           font-size: 1.9rem;
