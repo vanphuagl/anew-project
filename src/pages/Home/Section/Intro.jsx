@@ -4,6 +4,8 @@ const Intro = ({ refIntro, refOmoty }) => {
   return (
     <section className='intro' ref={refIntro}>
       <div className='intro__container'>
+        <div className="intro__gap pc-only"></div>
+
         <div className='intro__left'>
           <div className='intro__omoty' ref={refOmoty}>
             <svg
@@ -673,6 +675,8 @@ const Intro = ({ refIntro, refOmoty }) => {
           </div>
         </div>
 
+        <div className="intro__gap pc-only"></div>
+
         <div className='intro__right'>
           <div className='intro__panel top'>
             <h2 className='times-fonts'>One mile, One thousand years.</h2>
@@ -689,6 +693,8 @@ const Intro = ({ refIntro, refOmoty }) => {
             </p>
           </div>
         </div>
+
+        <div className="intro__gap pc-only"></div>
       </div>
     </section>
   )

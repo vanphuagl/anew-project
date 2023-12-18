@@ -1,20 +1,18 @@
 // ======== Intro
 .intro {
-  margin-bottom: 50px;
-
   &__container {
-    display: flex;
-    gap: 20px;
-    align-items: center;
+    align-items: flex-end;
+    display: grid;
+    grid-template-columns: 120px 1fr 120px 1fr 120px;
 
     position: relative;
     width: 100%;
     height: 100vh;
-    height: var(--app-height);
 
     @include maxW(1023px) {
       display: block;
       gap: unset;
+      height: var(--app-height);
     }
   }
 
@@ -23,6 +21,7 @@
   }
 
   &__omoty {
+    width: 100%;
     margin: 0 auto;
 
     opacity: 0;
@@ -33,8 +32,8 @@
     }
 
     svg {
-      width: 36.15vw;
-      height: auto;
+      width: 100%;
+      height: 100%;
     }
 
     path,
@@ -43,6 +42,7 @@
     }
 
     @include maxW(1023px) {
+      width: auto;
       svg {
         width: 364px;
         height: 318.65px;
@@ -52,8 +52,8 @@
 
   &__left,
   &__right {
-    width: 50%;
-    height: 100%;
+    width: 100%;
+    height: calc(100vh - 49px);
     overflow: hidden;
     position: relative;
     display: flex;
@@ -61,6 +61,7 @@
 
     @include maxW(1023px) {
       width: 100%;
+      height: 100%;
     }
   }
 
@@ -92,10 +93,10 @@
       p {
         font-size: 1.3vw;
         text-align: center;
+        font-feature-settings: 'palt' 1;
 
         span {
           font-size: 1.9rem;
-          letter-spacing: 0;
         }
       }
 
@@ -113,23 +114,23 @@
     }
 
     .bottom {
-      width: 70.5%;
       line-height: 1.8;
 
       p {
+        width: 70.5%;
+
         font-size: 1.1vw;
-        font-feature-settings: "palt" 1;
+        font-feature-settings: 'palt' 1;
 
         span {
           font-size: 1.2vw;
-          letter-spacing: 0;
         }
       }
 
       @include maxW(1023px) {
-        width: 100%;
-
         p {
+          width: 100%;
+
           font-size: 1.4rem;
 
           span {
@@ -151,6 +152,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 
     opacity: 0;
     transition: opacity 0.2s ease-in-out;

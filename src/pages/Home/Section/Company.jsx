@@ -19,11 +19,11 @@ const Company = () => {
           </h2>
 
           <div className='company__lang'>
-            <p className={isLangugage == 'jp' ? 'active' : ''} onClick={() => setIsLangugage('jp')}>
+            <p className={isLangugage === 'jp' ? 'active' : ''} onClick={() => setIsLangugage('jp')}>
               jp
             </p>
             <span>/</span>
-            <p className={isLangugage == 'en' ? 'active' : ''} onClick={() => setIsLangugage('en')}>
+            <p className={isLangugage === 'en' ? 'active' : ''} onClick={() => setIsLangugage('en')}>
               en
             </p>
           </div>

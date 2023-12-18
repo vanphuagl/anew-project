@@ -40,7 +40,6 @@ const HomePage = () => {
             trigger: refQuery.intro.current,
             start: 'top center-=250',
             toggleActions: 'play none none reverse',
-            // markers: true,
             onEnter: () => {
               refQuery.omoty.current.classList.add('is-active')
               panels[0].classList.add('is-active')
@@ -60,15 +59,6 @@ const HomePage = () => {
           end: () => '+=' + 100 * panels.length + '%',
           pin: true,
           scrub: 1,
-          // markers: true,
-          onEnter: () => {
-            refQuery.omoty.current.classList.add('is-active')
-            panels[0].classList.add('is-active')
-          },
-          onLeaveBack: () => {
-            refQuery.omoty.current.classList.remove('is-active')
-            panels[0].classList.remove('is-active')
-          },
           onUpdate: (self) => {
             const previousIndex = currentIndex
             currentIndex = Math.floor(self.progress * panels.length)
@@ -79,7 +69,6 @@ const HomePage = () => {
             }
           }
         }
-        // onComplete: () => console.log('end', tl.scrollTrigger.end)
       })
 
       panels.forEach((panel, index) => {
