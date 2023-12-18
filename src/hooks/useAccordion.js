@@ -8,7 +8,7 @@ const useAccordion = () => {
   const [height, setHeight] = useState(0)
 
   useEffect(() => {
-    function updateHeight() {
+    const updateHeight = () => {
       if (isOpen) {
         const newHeight = refContentBody.current.scrollHeight
         if (newHeight !== height) {

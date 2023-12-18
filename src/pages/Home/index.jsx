@@ -41,11 +41,11 @@ const HomePage = () => {
             start: 'top center-=250',
             toggleActions: 'play none none reverse',
             // markers: true,
-            onEnter: function () {
+            onEnter: () => {
               refQuery.omoty.current.classList.add('is-active')
               panels[0].classList.add('is-active')
             },
-            onLeaveBack: function () {
+            onLeaveBack: () => {
               refQuery.omoty.current.classList.remove('is-active')
               panels[0].classList.remove('is-active')
             }
@@ -61,15 +61,15 @@ const HomePage = () => {
           pin: true,
           scrub: 1,
           // markers: true,
-          onEnter: function () {
+          onEnter: () => {
             refQuery.omoty.current.classList.add('is-active')
             panels[0].classList.add('is-active')
           },
-          onLeaveBack: function () {
+          onLeaveBack: () => {
             refQuery.omoty.current.classList.remove('is-active')
             panels[0].classList.remove('is-active')
           },
-          onUpdate: function (self) {
+          onUpdate: (self) => {
             const previousIndex = currentIndex
             currentIndex = Math.floor(self.progress * panels.length)
             if (previousIndex >= panels.length || currentIndex >= panels.length) return
