@@ -21,8 +21,11 @@
   }
 
   &__left {
+    width: fit-content;
+    
     h1 {
       font-size: 2.4rem;
+      letter-spacing: -0.5px;
       font-weight: 400;
 
       @include maxW(1023px) {
@@ -34,7 +37,7 @@
   &__center {
     display: flex;
     justify-content: center;
-    gap: 5px;
+    gap: 8px;
 
     font-size: 1.9rem;
     text-transform: uppercase;
@@ -87,8 +90,8 @@
         content: '';
         top: 0.2em;
         left: 0.2em;
-        width: 13px;
-        height: 13px;
+        width: 14px;
+        height: 14px;
         background: var(--main-text-cl);
 
         transition-property: background-color, transform, visibility;

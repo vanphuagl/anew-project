@@ -10,15 +10,18 @@
   a,
   p {
     font-size: 1.6rem;
+    width: fit-content;
   }
 
   &__center {
     display: flex;
     justify-content: center;
+    margin: 0 auto;
   }
 
   &__right {
     text-align: right;
+    margin-left: auto;
   }
 
   @include maxW(1023px) {
@@ -38,11 +41,12 @@
 
     &__center {
       display: block;
-      margin-bottom: 6px;
+      margin: 0 0 6px;
     }
 
     &__right {
       text-align: left;
+      margin-left: 0;
     }
   }
 }

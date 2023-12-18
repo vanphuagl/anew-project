@@ -14,10 +14,16 @@
 
     h2 {
       font-family: var(--times-fonts);
-      font-size: 4.4rem;
+      font-size: 3.3vw;
+      letter-spacing: -0.7px;
       font-weight: 400;
       text-align: center;
       line-height: 1.1;
+    }
+
+    span {
+      font-family: var(--sans-serif-fonts);
+      font-size: 2.95vw;
     }
   }
 
