@@ -32,8 +32,6 @@ const Company = () => {
 
         <div className='company__center'>
           <div className='company__content'>
-            <h2 className='company__text'>( MISSION )</h2>
-
             <SwitchTransition mode='out-in'>
               <CSSTransition
                 key={isLangugage}
@@ -46,6 +44,8 @@ const Company = () => {
                 <>
                   {isLangugage === 'jp' ? (
                     <div className='lang-jp'>
+                      <h2 className='company__text'>( MISSION )</h2>
+
                       <div className='company__subtitle'>
                         <h3 className='company__text'>ALL BACK TO THE EARTH.</h3>
                         <p>すべてを地球に還す</p>
@@ -59,6 +59,8 @@ const Company = () => {
                     </div>
                   ) : (
                     <div className='lang-en'>
+                      <h2 className='company__text'>( MISSION )</h2>
+
                       <div className='company__subtitle'>
                         <h3 className='company__text'>ALL BACK TO THE EARTH.</h3>
                       </div>
@@ -77,8 +79,6 @@ const Company = () => {
           </div>
 
           <div className='company__content pc-only'>
-            <h2 className='company__text'>( INFO )</h2>
-
             <SwitchTransition mode='out-in'>
               <CSSTransition
                 key={isLangugage}
@@ -91,6 +91,8 @@ const Company = () => {
                 <>
                   {isLangugage === 'jp' ? (
                     <div className='lang-jp'>
+                      <h2 className='company__text'>( INFO )</h2>
+
                       <div className='company__subtitle'>
                         <h3 className='company__text'>anew inc.</h3>
                         <p>株式会社アニュウインク</p>
@@ -104,6 +106,8 @@ const Company = () => {
                     </div>
                   ) : (
                     <div className='lang-en'>
+                      <h2 className='company__text'>( INFO )</h2>
+
                       <div className='company__subtitle'>
                         <h3 className='company__text'>anew inc.</h3>
                       </div>
@@ -123,7 +127,18 @@ const Company = () => {
 
         <div className='company__right'>
           <div className='company__member'>
-            <h2 className='company__text'>( MEMBER )</h2>
+            <SwitchTransition mode='out-in'>
+              <CSSTransition
+                key={isLangugage}
+                addEndListener={(node, done) => {
+                  node.addEventListener('transitionend', done, false)
+                }}
+                timeout={300}
+                classNames='fade'
+              >
+                <h2 className='company__text'>( MEMBER )</h2>
+              </CSSTransition>
+            </SwitchTransition>
 
             {data.map((items, i) => (
               <SwitchTransition mode='out-in' key={i}>
