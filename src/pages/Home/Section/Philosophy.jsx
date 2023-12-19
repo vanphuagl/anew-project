@@ -18,6 +18,7 @@ const Philosophy = () => {
               height='600'
               viewBox='0 0 840 600'
               className='pc-only'
+              preserveAspectRatio="none"
             >
               <g id='bg' transform='translate(-0.012 0.038)'>
                 <path

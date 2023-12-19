@@ -126,7 +126,7 @@ const Company = () => {
             <h2 className='company__text'>( MEMBER )</h2>
 
             {data.map((items, i) => (
-              <SwitchTransition mode='out-in'>
+              <SwitchTransition mode='out-in' key={i}>
                 <CSSTransition
                   key={isLangugage}
                   addEndListener={(node, done) => {

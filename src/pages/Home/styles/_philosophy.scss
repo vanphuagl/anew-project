@@ -17,9 +17,9 @@
     width: 60.87%;
     overflow: hidden;
     position: sticky;
-    top: 60px;
+    top: 150px;
     left: 0;
-    height: calc(100vh - 75px);
+    height: calc(100vh - 175px);
 
     h2 {
       position: absolute;
@@ -141,7 +141,7 @@
   }
 
   &__mid {
-    margin-bottom: 85px;
+    margin-bottom: 35px;
 
     p {
       font-size: 1.6rem;
@@ -150,7 +150,7 @@
     }
 
     @include maxW(1023px) {
-      margin-bottom: 85px;
+      margin-bottom: 30px;
 
       p {
         font-size: 1.4rem;
@@ -173,6 +173,7 @@
     .line {
       font-size: 1.6rem;
       margin-bottom: 35px;
+      opacity: 0.3;
     }
 
     @include maxW(1023px) {
