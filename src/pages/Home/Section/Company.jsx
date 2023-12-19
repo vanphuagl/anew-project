@@ -166,27 +166,49 @@ const Company = () => {
           </div>
 
           <div className='company__content sp-only'>
-            <h2 className='company__text'>( INFO )</h2>
-
-            <div className='company__subtitle'>
-              <h3 className='company__text'>anew inc.</h3>
-              {isLangugage === 'jp' && <p>株式会社アニュウインク</p>}
-            </div>
-
-            <div className='company__desc'>
-              {isLangugage === 'jp' ? (
+            <SwitchTransition mode='out-in'>
+              <CSSTransition
+                key={isLangugage}
+                addEndListener={(node, done) => {
+                  node.addEventListener('transitionend', done, false)
+                }}
+                timeout={300}
+                classNames='fade'
+              >
                 <>
-                  <p>東京都中央区⽇本橋⼩⾈町14-7</p>
-                  <p>Soil Nihonbashi 2F Soil Work</p>
+                  {isLangugage === 'jp' ? (
+                    <div className='lang-jp'>
+                      <h2 className='company__text'>( INFO )</h2>
+
+                      <div className='company__subtitle'>
+                        <h3 className='company__text'>anew inc.</h3>
+                        <p>株式会社アニュウインク</p>
+                      </div>
+
+                      <div className='company__desc'>
+                        <p>東京都中央区⽇本橋⼩⾈町14-7</p>
+                        <p>Soil Nihonbashi 2F Soil Work</p>
+                        <Link to='mailto:info@anew-inc.com'>info@anew-inc.com</Link>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className='lang-en'>
+                      <h2 className='company__text'>( INFO )</h2>
+
+                      <div className='company__subtitle'>
+                        <h3 className='company__text'>anew inc.</h3>
+                      </div>
+
+                      <div className='company__desc'>
+                        <p>Soil Nihonbashi 2F Soil Work, 14-7, Kobunacho,</p>
+                        <p>Nihonbashi, Chuo-ku, Tokyo</p>
+                        <Link to='mailto:info@anew-inc.com'>info@anew-inc.com</Link>
+                      </div>
+                    </div>
+                  )}
                 </>
-              ) : (
-                <>
-                  <p>Soil Nihonbashi 2F Soil Work, 14-7, Kobunacho,</p>
-                  <p>Nihonbashi, Chuo-ku, Tokyo</p>
-                </>
-              )}
-              <Link to='mailto:info@anew-inc.com'>info@anew-inc.com</Link>
-            </div>
+              </CSSTransition>
+            </SwitchTransition>
           </div>
         </div>
       </div>
