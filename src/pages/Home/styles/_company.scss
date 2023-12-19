@@ -10,7 +10,7 @@
     @include maxW(1023px) {
       display: block;
       margin-top: 150px;
-      margin-bottom: 65px;
+      margin-bottom: 120px;
       padding: 50px 18px 0;
     }
   }
@@ -24,7 +24,7 @@
     }
 
     @include maxW(1023px) {
-      margin-bottom: 70px;
+      margin-bottom: 60px;
 
       h2 {
         margin-bottom: 15px;
@@ -68,7 +68,7 @@
 
     @include maxW(1023px) {
       font-size: 1.5rem;
-      letter-spacing: 0;
+      margin-bottom: 20px;
     }
   }
 
@@ -91,7 +91,7 @@
     }
 
     @include maxW(1023px) {
-      margin-bottom: 65px;
+      margin-bottom: 60px;
 
       p,
       a {
@@ -105,6 +105,8 @@
     margin-bottom: 25px;
 
     @include maxW(1023px) {
+      margin-bottom: 20px;
+
       p {
         font-size: 1.4rem;
       }
@@ -113,7 +115,7 @@
 
   &__member {
     @include maxW(1023px) {
-      margin-bottom: 65px;
+      margin-bottom: 60px;
     }
   }
 }

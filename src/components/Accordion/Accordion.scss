@@ -5,6 +5,10 @@
   flex-direction: column;
   margin-bottom: 30px;
 
+  @include maxW(1023px) {
+    margin-bottom: 20px;
+  }
+
   &.lang-en {
     p {
       font-size: 1.6rem;
