@@ -22,7 +22,7 @@ const useAccordion = () => {
     updateHeight()
     // Remove event listener on cleanup
     return () => window.removeEventListener('resize', updateHeight)
-  }, [])
+  }, [isOpen, height])
 
   useEffect(() => {
     if (refContentBody.current) {
@@ -37,7 +37,7 @@ const useAccordion = () => {
         setHeight(newHeight)
       }
     }
-  }, [isOpen])
+  }, [isOpen, height])
 
   const computedHeight = isOpen ? height : 0
   return [isOpen, toggle, refContentBody, computedHeight]

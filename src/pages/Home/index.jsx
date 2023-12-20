@@ -13,12 +13,12 @@ const HomePage = () => {
   const refQuery = {
     firstview: useRef(null),
     intro: useRef(null),
-    omoty: useRef(null)
+    omoty: useRef(null),
+    projects: useRef(null)
   }
 
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
-    let currentIndex = 0
 
     const ctx = gsap.context(() => {
       const panels = gsap.utils.toArray('.intro__panel')
@@ -26,73 +26,135 @@ const HomePage = () => {
         yPercent: (i) => (i ? 100 : 0)
       })
 
+      // scroll trigger pin spacing
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: refQuery.intro.current,
+          start: 'top top',
+          end: () => '+=' + 70 * panels.length + '%',
+          pin: true,
+          scrub: 1,
+          markers: true,
+          onComplete: () => {
+            gsap.to('.intro__container', {
+              opacity: 0,
+              duration: 0.5
+            })
+          }
+        }
+      })
+
+      // scroll trigger first view
       gsap.fromTo(
         refQuery.firstview.current,
         {
-          autoAlpha: 1,
+          opacity: 1,
           ease: Power2
         },
         {
-          duration: 0.3,
-          autoAlpha: 0,
+          duration: 0.5,
+          opacity: 0,
           ease: Power2,
           scrollTrigger: {
             trigger: refQuery.intro.current,
-            start: 'top center-=250',
-            toggleActions: 'play none none reverse',
-            onEnter: () => {
-              refQuery.omoty.current.classList.add('is-active')
-              panels[0].classList.add('is-active')
-            },
-            onLeaveBack: () => {
-              refQuery.omoty.current.classList.remove('is-active')
-              panels[0].classList.remove('is-active')
-            }
+            start: 'top center-=200',
+            toggleActions: 'play none none reverse'
           }
         }
       )
 
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: refQuery.intro.current,
-          start: 'top top',
-          end: () => '+=' + 100 * panels.length + '%',
-          pin: true,
-          scrub: 1,
-          onUpdate: (self) => {
-            const previousIndex = currentIndex
-            currentIndex = Math.floor(self.progress * panels.length)
-            if (previousIndex >= panels.length || currentIndex >= panels.length) return
-            if (previousIndex !== currentIndex) {
-              panels[currentIndex].classList.add('is-active')
-              panels[previousIndex].classList.remove('is-active')
-            }
+      //  trigger scroll start content
+      gsap
+        .timeline({
+          ease: Power2,
+          scrollTrigger: {
+            trigger: refQuery.intro.current,
+            start: 'top center-=200',
+            toggleActions: 'restart none none reset',
+            markers: true
+          }
+        })
+        .from(refQuery.omoty.current, {
+          opacity: 0,
+          duration: 1
+        })
+        .from('.text-reveal .animation-1', {
+          y: '200%',
+          opacity: 0,
+          duration: 0.5
+        })
+        .from(
+          '.text-reveal .animation-2',
+          {
+            y: '200%',
+            opacity: 0,
+            duration: 0.5
+          },
+          '-=0.2'
+        )
+        .from('.text-reveal .animation-3', {
+          y: '200%',
+          opacity: 0,
+          duration: 0.5
+        })
+
+      // trigger scroll content
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: panels[1],
+            start: 'bottom-=100 center-=250',
+            toggleActions: 'play none none reverse',
+            markers: true
+          }
+        })
+        .fromTo(
+          panels[0],
+          {
+            y: 0,
+            ease: Power2
+          },
+          {
+            y: -120,
+            ease: Power2,
+            duration: 0.5
+          }
+        )
+        .from(panels[1], {
+          opacity: 0,
+          duration: 0.5,
+          ease: Power2
+        })
+
+      // trigger when scroll-end pin
+      gsap.fromTo(
+        refQuery.intro.current,
+        {
+          opacity: 1,
+          ease: Power2
+        },
+        {
+          duration: 0.5,
+          opacity: 0,
+          ease: Power2,
+          scrollTrigger: {
+            trigger: refQuery.projects.current,
+            start: 'top bottom-=200',
+            toggleActions: 'play none none reverse',
+            markers: true
           }
         }
-      })
-
-      panels.forEach((panel, index) => {
-        if (index) {
-          tl.to(
-            panel,
-            {
-              yPercent: 0,
-              ease: 'none'
-            },
-            '+=0.25'
-          )
-        }
-      })
+      )
     })
 
     return () => ctx.revert()
-  }, [refQuery.intro, refQuery.firstview, refQuery.omoty])
+  }, [refQuery.intro, refQuery.firstview, refQuery.omoty, refQuery.projects])
 
   return (
     <>
       <FirstView refHeading={refQuery.firstview} />
       <Intro refIntro={refQuery.intro} refOmoty={refQuery.omoty} />
-      <Projects />
+      <Projects refProjects={refQuery.projects} />
       <Philosophy />
       <Company />
     </>

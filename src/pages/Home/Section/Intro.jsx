@@ -4,7 +4,7 @@ const Intro = ({ refIntro, refOmoty }) => {
   return (
     <section className='intro' ref={refIntro}>
       <div className='intro__container'>
-        <div className="intro__gap pc-only"></div>
+        <div className='intro__gap pc-only'></div>
 
         <div className='intro__left'>
           <div className='intro__omoty' ref={refOmoty}>
@@ -675,16 +675,20 @@ const Intro = ({ refIntro, refOmoty }) => {
           </div>
         </div>
 
-        <div className="intro__gap pc-only"></div>
+        <div className='intro__gap pc-only'></div>
 
         <div className='intro__right'>
-          <div className='intro__panel top'>
-            <h2 className='times-fonts'>One mile, One thousand years.</h2>
-            <p>
-              <span className='jp-fonts'>1,000</span>年先の未来を想像しながら、身の回りから変化を。
+            <div className="test">
+            <div className='intro__panel top'>
+            <h2 className='times-fonts text-reveal'>
+              <span className='animation-1'>One mile,</span> <span className='animation-2'>One thousand years.</span>
+            </h2>
+            <p className='text-reveal'>
+              <span className='animation-3 jp-fonts'>1,000</span>
+              <span className='animation-3'>年先の未来を想像しながら、身の回りから変化を。</span>
             </p>
           </div>
-
+          
           <div className='intro__panel bottom'>
             <p>
               <span className='jp-fonts'>anew</span>
@@ -692,9 +696,10 @@ const Intro = ({ refIntro, refOmoty }) => {
               <span className='jp-fonts'>All change anew.</span>
             </p>
           </div>
+            </div>
         </div>
 
-        <div className="intro__gap pc-only"></div>
+        <div className='intro__gap pc-only'></div>
       </div>
     </section>
   )
