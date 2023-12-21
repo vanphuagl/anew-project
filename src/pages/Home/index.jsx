@@ -22,9 +22,8 @@ const HomePage = () => {
 
     const ctx = gsap.context(() => {
       const panels = gsap.utils.toArray('.intro__panel')
-      gsap.set(panels, {
-        yPercent: (i) => (i ? 100 : 0)
-      })
+      let mm = gsap.matchMedia(),
+        breakPoint = 1024
 
       // scroll trigger pin spacing
       gsap.timeline({
@@ -33,14 +32,7 @@ const HomePage = () => {
           start: 'top top',
           end: () => '+=' + 70 * panels.length + '%',
           pin: true,
-          scrub: 1,
-          markers: true,
-          onComplete: () => {
-            gsap.to('.intro__container', {
-              opacity: 0,
-              duration: 0.5
-            })
-          }
+          scrub: 1
         }
       })
 
@@ -70,8 +62,7 @@ const HomePage = () => {
           scrollTrigger: {
             trigger: refQuery.intro.current,
             start: 'top center-=200',
-            toggleActions: 'restart none none reset',
-            markers: true
+            toggleActions: 'restart none none reset'
           }
         })
         .from(refQuery.omoty.current, {
@@ -98,33 +89,76 @@ const HomePage = () => {
           duration: 0.5
         })
 
-      // trigger scroll content
-      gsap
-        .timeline({
-          scrollTrigger: {
-            trigger: panels[1],
-            start: 'bottom-=100 center-=250',
-            toggleActions: 'play none none reverse',
-            markers: true
+      mm.add(
+        {
+          // set up any number of arbitrarily-named conditions. The function below will be called when ANY of them match.
+          isDesktop: `(min-width: ${breakPoint}px)`,
+          isMobile: `(max-width: ${breakPoint - 1}px)`
+        },
+        (context) => {
+          // context.conditions has a boolean property for each condition defined above indicating if it's matched or not.
+          let { isDesktop } = context.conditions
+
+          // trigger scroll content
+          if (isDesktop) {
+            gsap
+              .timeline({
+                ease: Power2,
+                scrollTrigger: {
+                  trigger: panels[1],
+                  start: 'bottom-=100 center-=250',
+                  toggleActions: 'play none none reverse'
+                }
+              })
+              .fromTo(
+                panels[0],
+                {
+                  y: 0
+                },
+                {
+                  y: -120,
+                  duration: 0.5
+                }
+              )
+              .from(panels[1], {
+                opacity: 0,
+                duration: 0.5
+              })
+          } else {
+            gsap
+              .timeline({
+                ease: Power2,
+                scrollTrigger: {
+                  trigger: panels[1],
+                  start: 'bottom+=100 center-=100',
+                  toggleActions: 'play none none reverse'
+                }
+              })
+              .to(refQuery.omoty.current, {
+                opacity: 0,
+                duration: 0.5
+              })
+              .fromTo(
+                panels[0],
+                {
+                  y: 0
+                },
+                {
+                  y: '-65vh',
+                  duration: 1
+                }
+              )
+              .from(panels[1], {
+                opacity: 0,
+                duration: 0.5
+              })
           }
-        })
-        .fromTo(
-          panels[0],
-          {
-            y: 0,
-            ease: Power2
-          },
-          {
-            y: -120,
-            ease: Power2,
-            duration: 0.5
+          return () => {
+            // optionally return a cleanup function that will be called when none of the conditions match anymore (after having matched)
+            // it'll automatically call context.revert() - do NOT do that here . Only put custom cleanup code here.
           }
-        )
-        .from(panels[1], {
-          opacity: 0,
-          duration: 0.5,
-          ease: Power2
-        })
+        }
+      )
 
       // trigger when scroll-end pin
       gsap.fromTo(
@@ -139,9 +173,8 @@ const HomePage = () => {
           ease: Power2,
           scrollTrigger: {
             trigger: refQuery.projects.current,
-            start: 'top bottom-=200',
-            toggleActions: 'play none none reverse',
-            markers: true
+            start: 'top+=50 center-=50',
+            toggleActions: 'play none none reverse'
           }
         }
       )

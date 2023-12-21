@@ -4,6 +4,12 @@ const Intro = ({ refIntro, refOmoty }) => {
   return (
     <section className='intro' ref={refIntro}>
       <div className='intro__container'>
+        <div className="intro__scroll">
+          <div className="line">
+            <span></span>
+          </div>
+        </div>
+
         <div className='intro__gap pc-only'></div>
 
         <div className='intro__left'>
@@ -678,25 +684,44 @@ const Intro = ({ refIntro, refOmoty }) => {
         <div className='intro__gap pc-only'></div>
 
         <div className='intro__right'>
-            <div className="test">
-            <div className='intro__panel top'>
-            <h2 className='times-fonts text-reveal'>
-              <span className='animation-1'>One mile,</span> <span className='animation-2'>One thousand years.</span>
-            </h2>
-            <p className='text-reveal'>
-              <span className='animation-3 jp-fonts'>1,000</span>
-              <span className='animation-3'>年先の未来を想像しながら、身の回りから変化を。</span>
-            </p>
-          </div>
-          
-          <div className='intro__panel bottom'>
-            <p>
-              <span className='jp-fonts'>anew</span>
-              はプロダクトサステナビリティの観点から、「私たちはいかにしてよき祖先となれるか」というグッドアンセスターとしての可能性を追求するプロジェクトチームです。環境危機・⽂化・経済といったコンテクストへの考察を起点に、ものにまつわるデザインやマテリアルのリサーチを進め、これからの社会にふさわしい低環境負荷のプロダクトを研究開発していきます。
-              <span className='jp-fonts'>All change anew.</span>
-            </p>
-          </div>
+          <div className='intro__wrap'>
+            <div className='intro__panel text-top'>
+              <h2 className='times-fonts text-reveal'>
+                <span className='animation-1'>One mile,</span>
+                <br className='sp-only' /> <span className='animation-2'>One thousand years.</span>
+              </h2>
+              <p className='text-reveal'>
+                <span className='animation-3'>
+                  <span className='times-fonts'>1,000年先の未来を想像しながら、身の回りから変化を。</span>
+                </span>
+              </p>
             </div>
+
+            <div className='intro__panel text-bottom'>
+              <p>
+                <span className='jp-fonts'>anew</span>
+                はプロダクトサステナビリティの観点から、
+                <br className='sp-only' />
+                「私たちはいかにしてよき祖先となれるか」という
+                <br className='sp-only' />
+                グッドアンセスターとしての可能性を追求する
+                <br className='sp-only' />
+                プロジェクトチームです。
+                <br className='sp-only' />
+                <br className='sp-only' />
+                環境危機・⽂化・経済といったコンテクストへの
+                <br className='sp-only' />
+                考察を起点に、ものにまつわるデザインやマテリアルの
+                <br className='sp-only' />
+                リサーチを進め、これからの社会にふさわしい
+                <br className='sp-only' />
+                低環境負荷のプロダクトを研究開発していきます。
+                <br className='sp-only' />
+                <br className='sp-only' />
+                <span className='jp-fonts'>All change anew.</span>
+              </p>
+            </div>
+          </div>
         </div>
 
         <div className='intro__gap pc-only'></div>

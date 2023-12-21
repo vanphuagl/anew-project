@@ -3,6 +3,8 @@
 
   --main-bg-cl: #33392e;
   --main-text-cl: #a3a18b;
+  --main-bg-rgb: 51, 57, 46;
+  --main-text-rgb: 163, 161, 139;
   --opacity: 0.3;
 
   --times-fonts: 'Times New Roman', serif;
@@ -14,5 +16,7 @@
 [data-theme='light'] {
   --main-bg-cl: #eae8dc;
   --main-text-cl: #3b720e;
+  --main-bg-rgb: 234, 232, 220;
+  --main-text-rgb: 59, 114, 14;
   --opacity: 0.1;
 }
