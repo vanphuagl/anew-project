@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Intro = ({ refIntro, refOmoty }) => {
+const Intro = ({ refIntro, refOmoty, refPanelTop, refPanelBottom }) => {
   return (
     <section className='intro' ref={refIntro}>
       <div className='intro__container'>
-        <div className="intro__scroll">
-          <div className="line">
+        <div className='intro__scroll'>
+          <div className='line'>
             <span></span>
           </div>
         </div>
@@ -685,7 +685,7 @@ const Intro = ({ refIntro, refOmoty }) => {
 
         <div className='intro__right'>
           <div className='intro__wrap'>
-            <div className='intro__panel text-top'>
+            <div className='intro__panel text-top' ref={refPanelTop}>
               <h2 className='times-fonts text-reveal'>
                 <span className='animation-1'>One mile,</span>
                 <br className='sp-only' /> <span className='animation-2'>One thousand years.</span>
@@ -697,7 +697,7 @@ const Intro = ({ refIntro, refOmoty }) => {
               </p>
             </div>
 
-            <div className='intro__panel text-bottom'>
+            <div className='intro__panel text-bottom' ref={refPanelBottom}>
               <p>
                 <span className='jp-fonts'>anew</span>
                 はプロダクトサステナビリティの観点から、

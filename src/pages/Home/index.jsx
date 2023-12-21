@@ -14,14 +14,15 @@ const HomePage = () => {
     firstview: useRef(null),
     intro: useRef(null),
     omoty: useRef(null),
-    projects: useRef(null)
+    projects: useRef(null),
+    panelTop: useRef(null),
+    panelBottom: useRef(null)
   }
 
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
-
+    // const panels = gsap.utils.toArray('.intro__panel')
     const ctx = gsap.context(() => {
-      const panels = gsap.utils.toArray('.intro__panel')
       let mm = gsap.matchMedia(),
         breakPoint = 1024
 
@@ -30,7 +31,7 @@ const HomePage = () => {
         scrollTrigger: {
           trigger: refQuery.intro.current,
           start: 'top top',
-          end: () => '+=' + 70 * panels.length + '%',
+          end: () => '+=' + 140 + '%',
           pin: true,
           scrub: 1
         }
@@ -105,13 +106,13 @@ const HomePage = () => {
               .timeline({
                 ease: Power2,
                 scrollTrigger: {
-                  trigger: panels[1],
+                  trigger: refQuery.panelBottom.current,
                   start: 'bottom-=100 center-=250',
                   toggleActions: 'play none none reverse'
                 }
               })
               .fromTo(
-                panels[0],
+                refQuery.panelTop.current,
                 {
                   y: 0
                 },
@@ -120,7 +121,7 @@ const HomePage = () => {
                   duration: 0.5
                 }
               )
-              .from(panels[1], {
+              .from(refQuery.panelBottom.current, {
                 opacity: 0,
                 duration: 0.5
               })
@@ -129,7 +130,7 @@ const HomePage = () => {
               .timeline({
                 ease: Power2,
                 scrollTrigger: {
-                  trigger: panels[1],
+                  trigger: refQuery.panelBottom.current,
                   start: 'bottom+=100 center-=100',
                   toggleActions: 'play none none reverse'
                 }
@@ -139,7 +140,7 @@ const HomePage = () => {
                 duration: 0.5
               })
               .fromTo(
-                panels[0],
+                refQuery.panelTop.current,
                 {
                   y: 0
                 },
@@ -148,7 +149,7 @@ const HomePage = () => {
                   duration: 1
                 }
               )
-              .from(panels[1], {
+              .from(refQuery.panelBottom.current, {
                 opacity: 0,
                 duration: 0.5
               })
@@ -181,12 +182,17 @@ const HomePage = () => {
     })
 
     return () => ctx.revert()
-  }, [refQuery.intro, refQuery.firstview, refQuery.omoty, refQuery.projects])
+  }, [refQuery.intro, refQuery.firstview, refQuery.omoty, refQuery.panelTop, refQuery.panelBottom, refQuery.projects])
 
   return (
     <>
       <FirstView refHeading={refQuery.firstview} />
-      <Intro refIntro={refQuery.intro} refOmoty={refQuery.omoty} />
+      <Intro
+        refIntro={refQuery.intro}
+        refOmoty={refQuery.omoty}
+        refPanelTop={refQuery.panelTop}
+        refPanelBottom={refQuery.panelBottom}
+      />
       <Projects refProjects={refQuery.projects} />
       <Philosophy />
       <Company />
