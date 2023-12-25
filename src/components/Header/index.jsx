@@ -67,31 +67,30 @@ const Header = () => {
 
   // ===== click link =====
 
-  const scrollToTop = () => {
-    if (pathname === '/') {
-      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
-    }
-  }
+  // const scrollToTop = () => {
+  //   if (pathname === '/') {
+  //     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+  //   }
+  // }
 
-  const handleLink = (path) => {
-    switch (path) {
-      case 'projects':
-        document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })
-        break
-      case 'philosophy':
-        document.getElementById('philosophy').scrollIntoView({ behavior: 'smooth' })
-        break
-      case 'company':
-        document.getElementById('company').scrollIntoView({ behavior: 'smooth' })
-        break
+  // const handleLink = (path) => {
+  //   switch (path) {
+  //     case 'projects':
+  //       document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })
+  //       break
+  //     case 'philosophy':
+  //       document.getElementById('philosophy').scrollIntoView({ behavior: 'smooth' })
+  //       break
+  //     case 'company':
+  //       document.getElementById('company').scrollIntoView({ behavior: 'smooth' })
+  //       break
 
-      default:
-        break
-    }
-  }
+  //     default:
+  //       break
+  //   }
+  // }
 
   // ====== height 100vh =====
-
 
   useEffect(() => {
     const appHeight = () => {
@@ -100,32 +99,24 @@ const Header = () => {
       // height menu
       const windowHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
       document.querySelector('.c-header__menu').style.height = windowHeight + 'px'
-      document.querySelector('.intro__container').style.height = windowHeight + 'px'
     }
-    appHeight();
+    appHeight()
     window.addEventListener('resize', appHeight)
     return () => window.removeEventListener('resize', appHeight)
   }, [])
-
 
   // ===== return =====
   return (
     <>
       <header className='c-header'>
-        <Link to='/' className='c-header__left' onClick={scrollToTop}>
+        <Link to='/' className='c-header__left'>
           <h1>anew inc.</h1>
         </Link>
 
         <div className='c-header__center'>
-          <Link to='/#projects' onClick={() => handleLink('projects')}>
-            projects,
-          </Link>
-          <Link to='/#philosophy' onClick={() => handleLink('philosophy')}>
-            philosophy,
-          </Link>
-          <Link to='/#company' onClick={() => handleLink('company')}>
-            company
-          </Link>
+          <Link to='/#projects'>projects,</Link>
+          <Link to='/#philosophy'>philosophy,</Link>
+          <Link to='/#company'>company</Link>
         </div>
 
         <div className='c-header__right'>
@@ -150,7 +141,6 @@ const Header = () => {
             to='/#projects'
             onClick={() => {
               toggleMenu()
-              handleLink('projects')
             }}
           >
             projects
@@ -159,7 +149,6 @@ const Header = () => {
             to='/#philosophy'
             onClick={() => {
               toggleMenu()
-              handleLink('philosophy')
             }}
           >
             philosophy
@@ -168,7 +157,6 @@ const Header = () => {
             to='/#company'
             onClick={() => {
               toggleMenu()
-              handleLink('company')
             }}
           >
             company

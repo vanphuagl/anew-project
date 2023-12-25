@@ -2,7 +2,7 @@ import React from 'react'
 
 const Intro = ({ refIntro, refOmoty, refPanelTop, refPanelBottom }) => {
   return (
-    <section className='intro' ref={refIntro}>
+    <section className='intro'>
       <div className='intro__container'>
         <div className='intro__scroll'>
           <div className='line'>
@@ -13,7 +13,7 @@ const Intro = ({ refIntro, refOmoty, refPanelTop, refPanelBottom }) => {
         <div className='intro__gap pc-only'></div>
 
         <div className='intro__left'>
-          <div className='intro__omoty' ref={refOmoty}>
+          <div className='omoty'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               xmlnsXlink='http://www.w3.org/1999/xlink'
@@ -684,8 +684,8 @@ const Intro = ({ refIntro, refOmoty, refPanelTop, refPanelBottom }) => {
         <div className='intro__gap pc-only'></div>
 
         <div className='intro__right'>
-          <div className='intro__wrap'>
-            <div className='intro__panel text-top' ref={refPanelTop}>
+          <div className='intro__top'>
+            <div className='intro__head'>
               <h2 className='times-fonts text-reveal'>
                 <span className='animation-1'>One mile,</span>
                 <br className='sp-only' /> <span className='animation-2'>One thousand years.</span>
@@ -696,31 +696,31 @@ const Intro = ({ refIntro, refOmoty, refPanelTop, refPanelBottom }) => {
                 </span>
               </p>
             </div>
+          </div>
 
-            <div className='intro__panel text-bottom' ref={refPanelBottom}>
-              <p>
-                <span className='jp-fonts'>anew</span>
-                はプロダクトサステナビリティの観点から、
-                <br className='sp-only' />
-                「私たちはいかにしてよき祖先となれるか」という
-                <br className='sp-only' />
-                グッドアンセスターとしての可能性を追求する
-                <br className='sp-only' />
-                プロジェクトチームです。
-                <br className='sp-only' />
-                <br className='sp-only' />
-                環境危機・⽂化・経済といったコンテクストへの
-                <br className='sp-only' />
-                考察を起点に、ものにまつわるデザインやマテリアルの
-                <br className='sp-only' />
-                リサーチを進め、これからの社会にふさわしい
-                <br className='sp-only' />
-                低環境負荷のプロダクトを研究開発していきます。
-                <br className='sp-only' />
-                <br className='sp-only' />
-                <span className='jp-fonts'>All change anew.</span>
-              </p>
-            </div>
+          <div className='intro__bottom'>
+            <p className='intro__desc'>
+              <span className='jp-fonts'>anew</span>
+              はプロダクトサステナビリティの観点から、
+              <br className='sp-only' />
+              「私たちはいかにしてよき祖先となれるか」という
+              <br className='sp-only' />
+              グッドアンセスターとしての可能性を追求する
+              <br className='sp-only' />
+              プロジェクトチームです。
+              <br className='sp-only' />
+              <br className='sp-only' />
+              環境危機・⽂化・経済といったコンテクストへの
+              <br className='sp-only' />
+              考察を起点に、ものにまつわるデザインやマテリアルの
+              <br className='sp-only' />
+              リサーチを進め、これからの社会にふさわしい
+              <br className='sp-only' />
+              低環境負荷のプロダクトを研究開発していきます。
+              <br className='sp-only' />
+              <br className='sp-only' />
+              <span className='jp-fonts'>All change anew.</span>
+            </p>
           </div>
         </div>
 
