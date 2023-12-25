@@ -15,8 +15,10 @@ const HomePage = () => {
   }, [])
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
+    let mm = gsap.matchMedia(),
+      breakPoint = 1024
 
+    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
     ScrollTrigger.config({ limitCallbacks: true })
 
     const sections = document.querySelectorAll('.vertical-scrolling')
@@ -57,7 +59,7 @@ const HomePage = () => {
           duration: 1,
           onEnter: () => {
             // vertical - 1
-            if (section.querySelector('.firstview')) {
+            if (section.querySelector('.first-view')) {
               document.querySelector('.intro').classList.remove('show')
               setTimeout(() => {
                 document.querySelector('.firstview__heading').classList.remove('hide')
@@ -68,7 +70,7 @@ const HomePage = () => {
             if (section.querySelector('.text-top')) {
               document.querySelector('.firstview__heading').classList.add('hide')
 
-              gsap.to('.intro__bottom', {
+              gsap.to('.intro__desc', {
                 opacity: 0
               })
 
@@ -119,48 +121,79 @@ const HomePage = () => {
                 document.querySelector('.intro').classList.add('show')
               }, 500)
 
-              gsap
-                .timeline({
-                  ease: Power2
-                })
-                .to('.intro__left .omoty', {
-                  opacity: 1,
-                  duration: 1
-                })
-                .to('.intro__head', {
-                  opacity: 1,
-                  duration: 0.5
-                })
-                .to('.text-reveal .animation-1', {
-                  y: 0,
-                  duration: 0.5
-                })
-                .to(
-                  '.text-reveal .animation-2',
-                  {
-                    y: 0,
-                    duration: 0.5
-                  },
-                  '-=0.2'
-                )
-                .to('.text-reveal .animation-3', {
-                  y: 0,
-                  duration: 0.5
-                })
+              // media responsive
+              mm.add(
+                {
+                  isDesktop: `(min-width: ${breakPoint}px)`,
+                  isMobile: `(max-width: ${breakPoint - 1}px)`
+                },
+                (context) => {
+                  let { isDesktop } = context.conditions
+                  if (isDesktop) {
+                    gsap
+                      .timeline({
+                        ease: Power2
+                      })
+                      .to('.intro__left .omoty', {
+                        opacity: 1,
+                        duration: 1
+                      })
+                      .to('.intro__head', {
+                        opacity: 1,
+                        duration: 0.5
+                      })
+                      .to('.text-reveal .animation-1', {
+                        y: 0,
+                        duration: 0.5
+                      })
+                      .to(
+                        '.text-reveal .animation-2',
+                        {
+                          y: 0,
+                          duration: 0.5
+                        },
+                        '-=0.2'
+                      )
+                      .to('.text-reveal .animation-3', {
+                        y: 0,
+                        duration: 0.5
+                      })
 
-              gsap
-                .timeline({
-                  ease: Power2,
-                  toggleActions: 'play none none reset'
-                })
-                .to('.intro__head', {
-                  y: -120,
-                  duration: 0.5
-                })
-                .to('.intro__bottom', {
-                  opacity: 1,
-                  duration: 0.5
-                })
+                    gsap
+                      .timeline({
+                        ease: Power2,
+                        toggleActions: 'play none none reset'
+                      })
+                      .to('.intro__head', {
+                        y: -120,
+                        duration: 0.5
+                      })
+                      .to('.intro__desc', {
+                        opacity: 1,
+                        duration: 0.5
+                      })
+                  } else {
+                    gsap
+                      .timeline({
+                        ease: Power2,
+                        toggleActions: 'play none none reset'
+                      })
+                      .to('.intro__left .omoty', {
+                        opacity: 0,
+                        duration: 0.5
+                      })
+                      .to('.intro__head', {
+                        y: '-60vh',
+                        duration: 1
+                      })
+                      .to('.intro__desc', {
+                        opacity: 1,
+                        duration: 0.5
+                      })
+                  }
+                  return () => {}
+                }
+              )
             }
 
             // vertical - 4
@@ -193,7 +226,7 @@ const HomePage = () => {
 
       <div className='fullpage'>
         <section className='vertical-scrolling vertical-1'>
-          <div className='firstview'></div>
+          <div className='first-view'></div>
         </section>
         <section className='vertical-scrolling vertical-2'>
           <div className='omoty'></div>
