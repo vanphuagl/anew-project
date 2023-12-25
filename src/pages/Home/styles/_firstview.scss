@@ -18,6 +18,11 @@
   &__heading {
     padding: 0 18px;
 
+    transition: opacity 0.3s ease-in-out;
+    &.hide {
+      opacity: 0;
+    }
+
     h2 {
       font-family: var(--times-fonts);
       font-size: 3.3vw;

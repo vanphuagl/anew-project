@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Intro = ({ refIntro, refOmoty, refPanelTop, refPanelBottom }) => {
+const Intro = () => {
   return (
     <section className='intro'>
       <div className='intro__container'>
@@ -687,11 +687,11 @@ const Intro = ({ refIntro, refOmoty, refPanelTop, refPanelBottom }) => {
           <div className='intro__top'>
             <div className='intro__head'>
               <h2 className='times-fonts text-reveal'>
-                <span className='animation-1'>One mile,</span>
-                <br className='sp-only' /> <span className='animation-2'>One thousand years.</span>
+                <span className='animation animation-1'>One mile,</span>
+                <br className='sp-only' /> <span className='animation animation-2'>One thousand years.</span>
               </h2>
               <p className='text-reveal'>
-                <span className='animation-3'>
+                <span className='animation animation-3'>
                   <span className='times-fonts'>1,000年先の未来を想像しながら、身の回りから変化を。</span>
                 </span>
               </p>
