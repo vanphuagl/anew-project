@@ -99,6 +99,9 @@ const Header = () => {
       // height menu
       const windowHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
       document.querySelector('.c-header__menu').style.height = windowHeight + 'px'
+      if (document.querySelector('.intro')) {
+        document.querySelector('.intro').style.height = windowHeight + 'px'
+      }
     }
     appHeight()
     window.addEventListener('resize', appHeight)
