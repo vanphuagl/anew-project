@@ -54,7 +54,6 @@ const HomePage = () => {
         toggleActions: 'play none none reverse'
       }
     })
-
     const loadIntro = gsap.timeline({
       paused: 'true',
       scrollTrigger: {
@@ -62,7 +61,6 @@ const HomePage = () => {
         toggleActions: 'play none none reset'
       }
     })
-
     const loadProject = gsap.timeline({
       paused: 'true',
       scrollTrigger: {
@@ -71,43 +69,83 @@ const HomePage = () => {
       }
     })
 
-    loadFirstView.fromTo(
-      '.firstview__heading',
+    mm.add(
       {
-        opacity: 1
+        // set up any number of arbitrarily-named conditions. The function below will be called when ANY of them match.
+        isDesktop: `(min-width: ${breakPoint}px)`,
+        isMobile: `(max-width: ${breakPoint - 1}px)`
       },
-      {
-        opacity: 0
+      (context) => {
+        // context.conditions has a boolean property for each condition defined above indicating if it's matched or not.
+        let { isDesktop } = context.conditions
+
+        loadFirstView.fromTo(
+          '.firstview__heading',
+          {
+            opacity: 1
+          },
+          {
+            opacity: 0
+          }
+        )
+
+        loadProject.to('.intro', {
+          opacity: 0,
+          duration: 0.5
+        })
+
+        if (isDesktop) {
+          loadIntro
+            .to('.intro__left', {
+              opacity: 1,
+              duration: 0.5,
+              delay: 1
+            })
+            .to('.intro__left .omoty', {
+              x: 0,
+              duration: 0.8,
+              delay: 0.5
+            })
+            .to('.intro__right', {
+              opacity: 1,
+              duration: 0.5,
+              delay: 0.5
+            })
+            .to('.c-scroll', {
+              opacity: 1,
+              duration: 0.5
+            })
+        } else {
+          loadIntro
+            .to('.intro__left', {
+              opacity: 1,
+              duration: 0.5,
+              delay: 1
+            })
+            .to('.intro__left .omoty', {
+              opacity: 0,
+              duration: 0.5,
+              delay: 0.5
+            })
+            .to('.intro__right', {
+              opacity: 1,
+              duration: 0.5,
+              delay: 0.5
+            })
+            .to('.c-scroll', {
+              opacity: 1,
+              duration: 0.5
+            })
+        }
+
+        return () => {
+          // optionally return a cleanup function that will be called when none of the conditions match anymore (after having matched)
+          // it'll automatically call context.revert() - do NOT do that here . Only put custom cleanup code here.
+        }
       }
     )
 
-    loadProject.to('.intro', {
-      opacity: 0,
-      duration: 0.5
-    })
-
-    loadIntro
-      .to('.intro__left', {
-        opacity: 1,
-        duration: 0.5,
-        delay: 1
-      })
-      .to('.intro__left .omoty', {
-        x: 0,
-        duration: 0.8,
-        delay: 0.5
-      })
-      .to('.intro__right', {
-        opacity: 1,
-        duration: 0.5,
-        delay: 0.5
-      })
-      .to('.c-scroll', {
-        opacity: 1,
-        duration: 0.5
-      })
-
-    function intoAnimation(section, i) {
+    const intoAnimation = (section, i) => {
       if (i === 1) {
         loadFirstView.play()
         loadIntro.play()
@@ -140,20 +178,17 @@ const HomePage = () => {
       }
     }
 
-    function goToSection(section, i) {
-      // console.log('section', section, i)
-
+    const goToSection = (section, i) => {
       if (scrolling.enabled) {
         // skip if a scroll tween is in progress
         scrolling.disable()
         gsap.to(window, {
           scrollTo: { y: section, autoKill: false },
           onComplete: scrolling.enable,
-          duration: 0.7
-          // onEnter: () => intoAnimation(section, i)
+          duration: 0.7,
+          onEnter: () => intoAnimation(section, i)
         })
 
-        intoAnimation(section, i)
         // anim && anim.restart()
       }
     }
@@ -193,33 +228,6 @@ const HomePage = () => {
           <Company />
         </section>
       </div>
-
-      {/* <Projects />
-      <Philosophy />
-      <Company /> */}
-      {/* <FirstView />
-      <Intro />
-
-      <div className='fullpage'>
-        <section className='vertical-scrolling vertical-1'>
-          <div className='first-view'></div>
-        </section>
-        <section className='vertical-scrolling vertical-2'>
-          <div className='omoty'></div>
-          <div className='text-top'></div>
-        </section>
-        <section className='vertical-scrolling vertical-3'>
-          <div className='text-bottom'></div>
-        </section>
-
-        <section className='vertical-scrolling'>
-          <div className='vertical-wrapper'>
-            <Projects />
-            <Philosophy />
-            <Company />
-          </div>
-        </section>
-      </div> */}
     </>
   )
 }
