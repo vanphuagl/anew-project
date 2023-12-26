@@ -49,6 +49,7 @@ const HomePage = () => {
 
     const loadFirstView = gsap.timeline({
       paused: 'true',
+      defaults: { duration: 0.5 },
       scrollTrigger: {
         trigger: '.intro',
         toggleActions: 'play none none reverse'
@@ -56,6 +57,7 @@ const HomePage = () => {
     })
     const loadIntro = gsap.timeline({
       paused: 'true',
+      defaults: { duration: 0.5 },
       scrollTrigger: {
         trigger: '.intro',
         toggleActions: 'play none none reset'
@@ -63,6 +65,7 @@ const HomePage = () => {
     })
     const loadProject = gsap.timeline({
       paused: 'true',
+      defaults: { duration: 0.5 },
       scrollTrigger: {
         trigger: '.projects',
         toggleActions: 'play none none reverse'
@@ -90,36 +93,29 @@ const HomePage = () => {
         )
 
         loadProject.to('.intro', {
-          opacity: 0,
-          duration: 0.5
+          opacity: 0
         })
 
         if (isDesktop) {
           loadIntro
             .to('.intro__left', {
               opacity: 1,
-              duration: 0.5,
               delay: 1
             })
             .to('.intro__left .omoty', {
               x: 0,
-              duration: 0.8,
               delay: 0.5
             })
             .to('.intro__right', {
-              opacity: 1,
-              duration: 0.5,
-              delay: 0.5
+              opacity: 1
             })
             .to('.c-scroll', {
-              opacity: 1,
-              duration: 0.5
+              opacity: 1
             })
         } else {
           loadIntro
             .to('.intro__left', {
               opacity: 1,
-              duration: 0.5,
               delay: 1
             })
             .to('.intro__left .omoty', {
@@ -128,13 +124,10 @@ const HomePage = () => {
               delay: 0.5
             })
             .to('.intro__right', {
-              opacity: 1,
-              duration: 0.5,
-              delay: 0.5
+              opacity: 1
             })
             .to('.c-scroll', {
-              opacity: 1,
-              duration: 0.5
+              opacity: 1
             })
         }
 
@@ -161,8 +154,8 @@ const HomePage = () => {
 
         gsap.to('.projects__title, .c-scroll', {
           opacity: 1,
-          duration: 0.5,
-          delay: 1
+          delay: 1,
+          duration: 0.5
         })
       }
 
