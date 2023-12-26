@@ -11,7 +11,7 @@ const Company = () => {
   const [isLangugage, setIsLangugage] = useState('jp')
 
   return (
-    <section className='company' id='company'>
+    <div className='company' id='company'>
       <div className='company__container'>
         <div className='company__left'>
           <h2>
@@ -212,7 +212,7 @@ const Company = () => {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   )
 }
 

@@ -2,14 +2,8 @@ import React from 'react'
 
 const Intro = () => {
   return (
-    <section className='intro'>
+    <div className='intro'>
       <div className='intro__container'>
-        <div className='intro__scroll'>
-          <div className='line'>
-            <span></span>
-          </div>
-        </div>
-
         <div className='intro__gap pc-only'></div>
 
         <div className='intro__left'>
@@ -686,14 +680,14 @@ const Intro = () => {
         <div className='intro__right'>
           <div className='intro__top'>
             <div className='intro__head'>
-              <h2 className='times-fonts text-reveal'>
-                <span className='animation animation-1'>One mile,</span>
-                <br className='sp-only' /> <span className='animation animation-2'>One thousand years.</span>
+              <h2 className='times-fonts'>
+                One mile, <br />
+                One thousand years.
               </h2>
-              <p className='text-reveal'>
-                <span className='animation animation-3'>
-                  <span className='times-fonts'>1,000年先の未来を想像しながら、身の回りから変化を。</span>
-                </span>
+              <p>
+                <span className='times-fonts'>1,000</span>年先の未来を想像しながら、
+                <br />
+                身の回りから変化を。
               </p>
             </div>
           </div>
@@ -702,23 +696,28 @@ const Intro = () => {
             <p className='intro__desc'>
               <span className='jp-fonts'>anew</span>
               はプロダクトサステナビリティの観点から、
-              <br className='sp-only' />
+              <br />
               「私たちはいかにしてよき祖先となれるか」という
-              <br className='sp-only' />
+              <br />
               グッドアンセスターとしての可能性を追求する
               <br className='sp-only' />
               プロジェクトチームです。
-              <br className='sp-only' />
-              <br className='sp-only' />
+            </p>
+
+            <p className='intro__desc'>
               環境危機・⽂化・経済といったコンテクストへの
               <br className='sp-only' />
-              考察を起点に、ものにまつわるデザインやマテリアルの
+              考察を起点に、
+              <br className='pc-only' />
+              ものにまつわるデザインやマテリアルの
               <br className='sp-only' />
-              リサーチを進め、これからの社会にふさわしい
+              リサーチを進め、
+              <br className='pc-only' />
+              これからの社会にふさわしい
               <br className='sp-only' />
-              低環境負荷のプロダクトを研究開発していきます。
-              <br className='sp-only' />
-              <br className='sp-only' />
+              低環境負荷のプロダクトを研
+              <br className='pc-only' />
+              究開発していきます。
               <span className='jp-fonts'>All change anew.</span>
             </p>
           </div>
@@ -726,7 +725,7 @@ const Intro = () => {
 
         <div className='intro__gap pc-only'></div>
       </div>
-    </section>
+    </div>
   )
 }
 

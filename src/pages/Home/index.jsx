@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 
 /* ---------------------------------- gsap ---------------------------------- */
 import { gsap } from 'gsap'
-import { ScrollTrigger, ScrollToPlugin, Power2 } from 'gsap/all'
+import { ScrollTrigger, ScrollToPlugin } from 'gsap/all'
 
 /* --------------------------------- section -------------------------------- */
 import { FirstView, Intro, Projects, Philosophy, Company } from './Section'
@@ -10,9 +10,9 @@ import { FirstView, Intro, Projects, Philosophy, Company } from './Section'
 import './Home.scss'
 
 const HomePage = () => {
-  useEffect(() => {
-    window.history.scrollRestoration = 'manual'
-  }, [])
+  // useEffect(() => {
+  //   window.history.scrollRestoration = 'manual'
+  // }, [])
 
   useEffect(() => {
     let mm = gsap.matchMedia(),
@@ -47,6 +47,99 @@ const HomePage = () => {
       }
     }
 
+    const loadFirstView = gsap.timeline({
+      paused: 'true',
+      scrollTrigger: {
+        trigger: '.intro',
+        toggleActions: 'play none none reverse'
+      }
+    })
+
+    const loadIntro = gsap.timeline({
+      paused: 'true',
+      scrollTrigger: {
+        trigger: '.intro',
+        toggleActions: 'play none none reset'
+      }
+    })
+
+    const loadProject = gsap.timeline({
+      paused: 'true',
+      scrollTrigger: {
+        trigger: '.projects',
+        toggleActions: 'play none none reverse'
+      }
+    })
+
+    loadFirstView.fromTo(
+      '.firstview__heading',
+      {
+        opacity: 1
+      },
+      {
+        opacity: 0
+      }
+    )
+
+    loadProject.to('.intro', {
+      opacity: 0,
+      duration: 0.5
+    })
+
+    loadIntro
+      .to('.intro__left', {
+        opacity: 1,
+        duration: 0.5,
+        delay: 1
+      })
+      .to('.intro__left .omoty', {
+        x: 0,
+        duration: 0.8,
+        delay: 0.5
+      })
+      .to('.intro__right', {
+        opacity: 1,
+        duration: 0.5,
+        delay: 0.5
+      })
+      .to('.c-scroll', {
+        opacity: 1,
+        duration: 0.5
+      })
+
+    function intoAnimation(section, i) {
+      if (i === 1) {
+        loadFirstView.play()
+        loadIntro.play()
+
+        gsap.to('.projects__title', {
+          opacity: 0,
+          duration: 0.5
+        })
+      }
+
+      if (i === 2) {
+        loadProject.play()
+
+        gsap.to('.projects__title, .c-scroll', {
+          opacity: 1,
+          duration: 0.5,
+          delay: 1
+        })
+      }
+
+      if (i === 3) {
+        gsap.to('.projects__title, .c-scroll', {
+          opacity: 0,
+          duration: 0.3
+        })
+
+        document.querySelector('.vertical-normal').classList.add('fade')
+      } else {
+        document.querySelector('.vertical-normal').classList.remove('fade')
+      }
+    }
+
     function goToSection(section, i) {
       // console.log('section', section, i)
 
@@ -56,154 +149,11 @@ const HomePage = () => {
         gsap.to(window, {
           scrollTo: { y: section, autoKill: false },
           onComplete: scrolling.enable,
-          duration: 1,
-          onEnter: () => {
-            // vertical - 1
-            if (section.querySelector('.first-view')) {
-              document.querySelector('.intro').classList.remove('show')
-              setTimeout(() => {
-                document.querySelector('.firstview__heading').classList.remove('hide')
-              }, 500)
-            }
-
-            // vertical - 2
-            if (section.querySelector('.text-top')) {
-              document.querySelector('.firstview__heading').classList.add('hide')
-
-              gsap.to('.intro__desc', {
-                opacity: 0
-              })
-
-              setTimeout(() => {
-                document.querySelector('.intro').classList.add('show')
-
-                gsap.to('.intro__head', {
-                  y: 0
-                })
-
-                gsap
-                  .timeline({
-                    ease: Power2,
-                    scrollTrigger: {
-                      toggleActions: 'play none none reset'
-                    }
-                  })
-                  .to('.intro__left .omoty', {
-                    opacity: 1,
-                    duration: 1
-                  })
-                  .to('.intro__head', {
-                    opacity: 1,
-                    duration: 0.5
-                  })
-                  .to('.text-reveal .animation-1', {
-                    y: 0,
-                    duration: 0.5
-                  })
-                  .to(
-                    '.text-reveal .animation-2',
-                    {
-                      y: 0,
-                      duration: 0.5
-                    },
-                    '-=0.2'
-                  )
-                  .to('.text-reveal .animation-3', {
-                    y: 0,
-                    duration: 0.5
-                  })
-              }, 500)
-            }
-
-            // vertical - 3
-            if (section.querySelector('.text-bottom')) {
-              setTimeout(() => {
-                document.querySelector('.intro').classList.add('show')
-              }, 500)
-
-              // media responsive
-              mm.add(
-                {
-                  isDesktop: `(min-width: ${breakPoint}px)`,
-                  isMobile: `(max-width: ${breakPoint - 1}px)`
-                },
-                (context) => {
-                  let { isDesktop } = context.conditions
-                  if (isDesktop) {
-                    gsap
-                      .timeline({
-                        ease: Power2
-                      })
-                      .to('.intro__left .omoty', {
-                        opacity: 1,
-                        duration: 1
-                      })
-                      .to('.intro__head', {
-                        opacity: 1,
-                        duration: 0.5
-                      })
-                      .to('.text-reveal .animation-1', {
-                        y: 0,
-                        duration: 0.5
-                      })
-                      .to(
-                        '.text-reveal .animation-2',
-                        {
-                          y: 0,
-                          duration: 0.5
-                        },
-                        '-=0.2'
-                      )
-                      .to('.text-reveal .animation-3', {
-                        y: 0,
-                        duration: 0.5
-                      })
-
-                    gsap
-                      .timeline({
-                        ease: Power2,
-                        toggleActions: 'play none none reset'
-                      })
-                      .to('.intro__head', {
-                        y: -120,
-                        duration: 0.5
-                      })
-                      .to('.intro__desc', {
-                        opacity: 1,
-                        duration: 0.5
-                      })
-                  } else {
-                    gsap
-                      .timeline({
-                        ease: Power2,
-                        toggleActions: 'play none none reset'
-                      })
-                      .to('.intro__left .omoty', {
-                        opacity: 0,
-                        duration: 0.5
-                      })
-                      .to('.intro__head', {
-                        y: '-60vh',
-                        duration: 1
-                      })
-                      .to('.intro__desc', {
-                        opacity: 1,
-                        duration: 0.5
-                      })
-                  }
-                  return () => {}
-                }
-              )
-            }
-
-            // vertical - 4
-            if (section.querySelector('.vertical-wrapper')) {
-              document.querySelector('.intro').classList.remove('show')
-              document.querySelector('.firstview__heading').classList.add('hide')
-            }
-          }
+          duration: 0.7
+          // onEnter: () => intoAnimation(section, i)
         })
 
+        intoAnimation(section, i)
         // anim && anim.restart()
       }
     }
@@ -221,7 +171,33 @@ const HomePage = () => {
 
   return (
     <>
-      <FirstView />
+      <div className='c-scroll'>
+        <div className='line'>
+          <span></span>
+        </div>
+      </div>
+
+      <div className='fullpage'>
+        <section className='vertical-scrolling vertical-firstview'>
+          <FirstView />
+        </section>
+        <section className='vertical-scrolling vertical-intro'>
+          <Intro />
+        </section>
+        <section className='vertical-scrolling vertical-projects'>
+          <Projects />
+        </section>
+
+        <section className='vertical-scrolling vertical-normal'>
+          <Philosophy />
+          <Company />
+        </section>
+      </div>
+
+      {/* <Projects />
+      <Philosophy />
+      <Company /> */}
+      {/* <FirstView />
       <Intro />
 
       <div className='fullpage'>
@@ -243,7 +219,7 @@ const HomePage = () => {
             <Company />
           </div>
         </section>
-      </div>
+      </div> */}
     </>
   )
 }

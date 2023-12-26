@@ -2,7 +2,7 @@ import React from 'react'
 
 const FirstView = () => {
   return (
-    <section className='firstview'>
+    <div className='firstview'>
       <div className='firstview__container'>
         <div className='firstview__heading'>
           <h2>
@@ -15,7 +15,7 @@ const FirstView = () => {
           </h2>
         </div>
       </div>
-    </section>
+    </div>
   )
 }
 

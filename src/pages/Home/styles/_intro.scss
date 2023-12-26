@@ -1,16 +1,6 @@
 .intro {
-  position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100vh;
-
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-
-  &.show {
-    opacity: 1;
-  }
 
   &__container {
     width: 100%;
@@ -26,45 +16,17 @@
     }
   }
 
-  &__scroll {
-    position: absolute;
-    right: 35px;
-    bottom: 35px;
-
-    .line {
-      display: block;
-      height: 40px;
-      width: 1px;
-      background-color: rgba($color: var(--main-text-rgb), $alpha: 0.3);
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      margin: 0 auto;
-
-      span {
-        position: absolute;
-        display: block;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 0%;
-        animation: scroll-down 4s infinite;
-        background-color: var(--main-text-cl);
-      }
-    }
-
-    @include maxW(1023px) {
-      right: 22px;
-      bottom: 22px;
-    }
-  }
-
   &__left,
   &__right {
     width: 100%;
     height: calc(100vh - 49px);
-    overflow: hidden;
     position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    opacity: 0;
 
     @include maxW(1023px) {
       width: 100%;
@@ -78,8 +40,7 @@
 
     .omoty {
       width: 100%;
-
-      opacity: 0;
+      transform: translateX(58.5%);
     }
 
     svg {
@@ -112,21 +73,9 @@
     }
   }
 
-  &__head {
-    opacity: 0;
-  }
-
   &__top,
   &__bottom {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
 
     @include maxW(1023px) {
       display: block;
@@ -138,8 +87,6 @@
   }
 
   &__top {
-    text-align: center;
-
     h2 {
       font-size: 2.4vw;
       font-weight: 400;
@@ -148,31 +95,41 @@
 
     p {
       font-size: 1.3vw;
+      line-height: 1.3;
       font-feature-settings: 'palt' 1;
+
+      span {
+        font-size: 1.4vw;
+      }
     }
 
     @include maxW(1023px) {
-      text-align: left;
-
       h2 {
         font-size: 2.6rem;
         margin-bottom: 10px;
       }
 
       p {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
+
+        span {
+          font-size: 1.5rem;
+        }
       }
     }
   }
 
   &__bottom {
+    margin-top: 55px;
+
     p {
-      transform: translateY(60px);
       font-size: 1.1vw;
       font-feature-settings: 'palt' 1;
       line-height: 1.8;
 
-      opacity: 0;
+      &:first-child {
+        margin-bottom: 25px;
+      }
 
       span {
         font-size: 1.2vw;
@@ -181,7 +138,6 @@
 
     @include maxW(1023px) {
       p {
-        transform: translateY(calc(-35vh + 80px + 80px));
         width: 100%;
         font-size: 1.4rem;
 
@@ -193,23 +149,30 @@
   }
 }
 
-.vertical-scrolling {
-  width: 100%;
-  min-height: 100vh;
+.vertical {
+  &-scrolling {
+    width: 100%;
+    height: 100vh;
+
+    &.vertical-normal {
+      height: auto;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+
+      &.fade {
+        opacity: 1;
+      }
+    }
+  }
 }
 
-.vertical-wrapper {
-  position: relative;
-  height: 100%;
-}
-
-.text-reveal {
+.vertical .text-reveal {
   position: relative;
   overflow: hidden;
 
   span.animation {
     display: inline-block;
-    transform: translateY(200%);
+    // transform: translateY(200%);
   }
 }
 
@@ -232,11 +195,37 @@
   }
 }
 
-// .parent {
-//   width: 100%;
-//   height: 100vh;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   font-size: 6vw;
-// }
+.c-scroll {
+  position: fixed;
+  right: 35px;
+  bottom: 35px;
+
+  opacity: 0;
+
+  .line {
+    display: block;
+    height: 40px;
+    width: 1px;
+    background-color: rgba($color: var(--main-text-rgb), $alpha: 0.3);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+
+    span {
+      position: absolute;
+      display: block;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 0%;
+      animation: scroll-down 4s infinite;
+      background-color: var(--main-text-cl);
+    }
+  }
+
+  @include maxW(1023px) {
+    right: 22px;
+    bottom: 22px;
+  }
+}

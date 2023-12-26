@@ -1,10 +1,9 @@
 // ======== FRIST VIEW
 .firstview {
-  position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100vh;
+
+  position: relative;
 
   @include maxW(1023px) {
     height: var(--app-height);
@@ -21,11 +20,6 @@
 
   &__heading {
     padding: 0 18px;
-
-    transition: opacity 0.3s ease-in-out;
-    &.hide {
-      opacity: 0;
-    }
 
     h2 {
       font-family: var(--times-fonts);

@@ -2,7 +2,7 @@ import React from 'react'
 
 const Philosophy = () => {
   return (
-    <section className='philosophy' id='philosophy'>
+    <div className='philosophy' id='philosophy'>
       <div className='philosophy__container'>
         <div className='philosophy__left'>
           <h2>
@@ -126,7 +126,7 @@ const Philosophy = () => {
           </p>
         </div>
       </div>
-    </section>
+    </div>
   )
 }
 
