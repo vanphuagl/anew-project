@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import './Header.scss'
 
 const Header = () => {
-  const { pathname } = useLocation()
+  // const { pathname } = useLocation()
   const toggleRef = useRef(null)
   const [checked, setChecked] = useState(true)
   const [openMenu, setOpenMenu] = useState(false)

@@ -1,8 +1,8 @@
 // ======== Company
 .company {
   &__container {
-    margin: 200px auto 150px;
-    padding: 60px 30px 0;
+    margin: 150px auto 150px;
+    padding: 0 30px;
     display: grid;
     grid-template-columns: 21.5% 1fr 1fr;
     gap: 80px;
@@ -11,7 +11,7 @@
       display: block;
       margin-top: 150px;
       margin-bottom: 120px;
-      padding: 50px 18px 0;
+      padding: 0 18px;
     }
   }
 
@@ -75,6 +75,10 @@
   &__content {
     margin-bottom: 80px;
 
+    &:last-child {
+      margin-bottom: initial;
+    }
+
     h3 {
       margin-bottom: initial;
     }
@@ -83,6 +87,7 @@
     a {
       font-size: 1.5rem;
       line-height: 1.7;
+      font-feature-settings: "palt" 1;
     }
 
     a {
@@ -103,6 +108,8 @@
 
   &__subtitle {
     margin-bottom: 25px;
+
+    font-feature-settings: "palt" 1;
 
     @include maxW(1023px) {
       margin-bottom: 20px;

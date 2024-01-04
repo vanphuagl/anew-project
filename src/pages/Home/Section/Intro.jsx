@@ -685,7 +685,7 @@ const Intro = () => {
                 One thousand years.
               </h2>
               <p>
-                <span className='times-fonts'>1,000</span>年先の未来を想像しながら、
+                <span>1,000</span>年先の未来を想像しながら、
                 <br />
                 身の回りから変化を。
               </p>
@@ -718,6 +718,7 @@ const Intro = () => {
               低環境負荷のプロダクトを研
               <br className='pc-only' />
               究開発していきます。
+              <br className='sp-only' />
               <span className='jp-fonts'>All change anew.</span>
             </p>
           </div>

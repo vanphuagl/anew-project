@@ -23,7 +23,7 @@
 
     h2 {
       font-family: var(--times-fonts);
-      font-size: 3.3vw;
+      font-size: 3vw;
       letter-spacing: -0.7px;
       font-weight: 400;
       text-align: center;
@@ -32,19 +32,20 @@
 
     span {
       font-family: var(--sans-serif-fonts);
-      font-size: 2.95vw;
+      font-size: 2.5vw;
     }
   }
 
   @include maxW(1023px) {
     &__heading {
       h2 {
-        font-size: 2.8rem;
+        font-size: 2.6rem;
         text-align: left;
+        letter-spacing: -0.3px;
       }
 
       span {
-        font-size: 2.4rem;
+        font-size: 2.3rem;
       }
     }
   }
