@@ -1,7 +1,7 @@
 @import 'src/styles/imports/mixins';
 
 .c-footer {
-  padding: 25px 30px;
+  padding: 0 30px 25px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 80px;

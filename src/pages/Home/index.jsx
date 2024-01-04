@@ -107,10 +107,10 @@ const HomePage = () => {
               delay: 0.5
             })
             .to('.intro__right', {
-              opacity: 1
-            })
-            .to('.c-scroll', {
-              opacity: 1
+              opacity: 1,
+              onComplete: () => {
+                document.querySelector('.c-scroll').classList.add('fade')
+              }
             })
         } else {
           loadIntro
@@ -124,10 +124,10 @@ const HomePage = () => {
               delay: 0.5
             })
             .to('.intro__right', {
-              opacity: 1
-            })
-            .to('.c-scroll', {
-              opacity: 1
+              opacity: 1,
+              onComplete: () => {
+                document.querySelector('.c-scroll').classList.add('fade')
+              }
             })
         }
 
@@ -139,6 +139,10 @@ const HomePage = () => {
     )
 
     const intoAnimation = (section, i) => {
+      if (i === 0) {
+        document.querySelector('.c-scroll').classList.remove('fade')
+      }
+
       if (i === 1) {
         loadFirstView.play()
         loadIntro.play()
@@ -150,9 +154,10 @@ const HomePage = () => {
       }
 
       if (i === 2) {
+        document.querySelector('.c-scroll').classList.add('fade')
         loadProject.play()
 
-        gsap.to('.projects__title, .c-scroll', {
+        gsap.to('.projects__title', {
           opacity: 1,
           delay: 1,
           duration: 0.5
@@ -160,11 +165,12 @@ const HomePage = () => {
       }
 
       if (i === 3) {
-        gsap.to('.projects__title, .c-scroll', {
+        gsap.to('.projects__title', {
           opacity: 0,
           duration: 0.3
         })
 
+        document.querySelector('.c-scroll').classList.remove('fade')
         document.querySelector('.vertical-normal').classList.add('fade')
       } else {
         document.querySelector('.vertical-normal').classList.remove('fade')
