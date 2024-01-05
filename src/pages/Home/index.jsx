@@ -63,14 +63,6 @@ const HomePage = () => {
         toggleActions: 'play none none reset'
       }
     })
-    const loadProject = gsap.timeline({
-      paused: 'true',
-      defaults: { duration: 0.5 },
-      scrollTrigger: {
-        trigger: '.projects',
-        toggleActions: 'play none none reverse'
-      }
-    })
 
     mm.add(
       {
@@ -91,10 +83,6 @@ const HomePage = () => {
             opacity: 0
           }
         )
-
-        loadProject.to('.intro', {
-          opacity: 0
-        })
 
         if (isDesktop) {
           loadIntro
@@ -147,6 +135,11 @@ const HomePage = () => {
         loadFirstView.play()
         loadIntro.play()
 
+        gsap.to('.intro', {
+          opacity: 1,
+          delay: 1,
+          duration: 0.5
+        })
         gsap.to('.projects__title', {
           opacity: 0,
           duration: 0.5
@@ -155,8 +148,11 @@ const HomePage = () => {
 
       if (i === 2) {
         document.querySelector('.c-scroll').classList.add('fade')
-        loadProject.play()
 
+        gsap.to('.intro', {
+          opacity: 0,
+          duration: 0.5
+        })
         gsap.to('.projects__title', {
           opacity: 1,
           delay: 1,
