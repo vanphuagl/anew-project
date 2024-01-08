@@ -694,19 +694,20 @@ const Intro = () => {
 
           <div className='intro__bottom'>
             <p className='intro__desc'>
-              <span className='jp-fonts'>anew</span>はプロダクトサステナビリティの観点から、 <br />
-              「私たちはいかにしてよき祖先となれるか」という <br />
-              グッドアンセスターとしての可能性を追求する <br className='sp-only' />
+              <span className='jp-fonts'>anew</span>はプロダクトサステナビリティの観点から、<br />
+              「私たちはいかにしてよき祖先となれるか」という<br />
+              グッドアンセスターとしての可能性を追求する<br className='sp-only' />
               プロジェクトチームです。
             </p>
             <p className='intro__desc'>
-              環境危機・⽂化・経済といったコンテクストへの <br className='sp-only' />
-              考察を起点に、 <br className='pc-only' />
-              ものにまつわるデザインやマテリアルの <br className='sp-only' />
-              リサーチを進め、 <br className='pc-only' />
-              これからの社会にふさわしい <br className='sp-only' />
-              低環境負荷のプロダクトを <br className='pc-only' />
-              研究開発していきます。 <br className='sp-only' />
+              環境危機・⽂化・経済といったコンテクストへの<br className='sp-only' />
+              考察を起点に、<br className='pc-only' />
+              ものにまつわるデザインやマテリアルの<br className='sp-only' />
+              リサーチを進め、<br className='pc-only' />
+              これからの社会にふさわしい<br className='sp-only' />
+              低環境負荷のプロダクトを<br className='pc-only' />
+              研究開発していきます。
+              <br className='sp-only' />
               <span className='jp-fonts'>All change anew.</span>
             </p>
           </div>

@@ -146,9 +146,9 @@ const Header = () => {
             INSTAGRAM
           </Link>
           <Link to='https://www.websitecarbon.com/' target='_blank' className='carbon'>
-            * This website emits 0.00g of CO2 per view.
+            * This website emits 0.03g of CO2 per view.
           </Link>
-          <p>©︎ 2023 anew inc.</p>
+          <p>©︎ 2024 anew inc.</p>
         </div>
       </div>
     </>
