@@ -65,31 +65,6 @@ const Header = () => {
     setOpenMenu(!openMenu)
   }
 
-  // ===== click link =====
-
-  // const scrollToTop = () => {
-  //   if (pathname === '/') {
-  //     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
-  //   }
-  // }
-
-  // const handleLink = (path) => {
-  //   switch (path) {
-  //     case 'projects':
-  //       document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })
-  //       break
-  //     case 'philosophy':
-  //       document.getElementById('philosophy').scrollIntoView({ behavior: 'smooth' })
-  //       break
-  //     case 'company':
-  //       document.getElementById('company').scrollIntoView({ behavior: 'smooth' })
-  //       break
-
-  //     default:
-  //       break
-  //   }
-  // }
-
   // ====== height 100vh =====
 
   useEffect(() => {
@@ -117,9 +92,9 @@ const Header = () => {
         </Link>
 
         <div className='c-header__center'>
-          <Link to='/#projects'>projects,</Link>
-          <Link to='/#philosophy'>philosophy,</Link>
-          <Link to='/#company'>company</Link>
+          <a href='#projects'>projects,</a>
+          <a href='#philosophy'>philosophy,</a>
+          <a href='#company'>company</a>
         </div>
 
         <div className='c-header__right'>
@@ -140,30 +115,30 @@ const Header = () => {
 
       <div className={` ${'c-header__menu'} ${openMenu && size.width < 1023 ? `${'active'}` : ''} `}>
         <div className='top'>
-          <Link
-            to='/#projects'
+          <a
+            href='/#projects'
             onClick={() => {
               toggleMenu()
             }}
           >
             projects
-          </Link>
-          <Link
-            to='/#philosophy'
+          </a>
+          <a
+            href='/#philosophy'
             onClick={() => {
               toggleMenu()
             }}
           >
             philosophy
-          </Link>
-          <Link
-            to='/#company'
+          </a>
+          <a
+            href='/#company'
             onClick={() => {
               toggleMenu()
             }}
           >
             company
-          </Link>
+          </a>
         </div>
 
         <div className='bottom'>

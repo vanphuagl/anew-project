@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useRef, useEffect } from 'react'
 
 /* ---------------------------------- gsap ---------------------------------- */
 import { gsap } from 'gsap'
@@ -12,7 +12,11 @@ import './Home.scss'
 const HomePage = () => {
   // useEffect(() => {
   //   window.history.scrollRestoration = 'manual'
-  // }, [])
+  // }, [])'
+
+  const refProjects = useRef(null)
+  const refNormal = useRef(null)
+  const refScroll = useRef(null)
 
   useEffect(() => {
     let mm = gsap.matchMedia(),
@@ -97,7 +101,7 @@ const HomePage = () => {
             .to('.intro__right', {
               opacity: 1,
               onComplete: () => {
-                document.querySelector('.c-scroll').classList.add('fade')
+                refScroll.current.classList.add('fade')
               }
             })
         } else {
@@ -114,7 +118,7 @@ const HomePage = () => {
             .to('.intro__right', {
               opacity: 1,
               onComplete: () => {
-                document.querySelector('.c-scroll').classList.add('fade')
+                refScroll.current.classList.add('fade')
               }
             })
         }
@@ -128,7 +132,7 @@ const HomePage = () => {
 
     const intoAnimation = (section, i) => {
       if (i === 0) {
-        document.querySelector('.c-scroll').classList.remove('fade')
+        refScroll.current.classList.remove('fade')
       }
 
       if (i === 1) {
@@ -147,7 +151,7 @@ const HomePage = () => {
       }
 
       if (i === 2) {
-        document.querySelector('.c-scroll').classList.add('fade')
+        refScroll.current.classList.add('fade')
 
         gsap.to('.intro', {
           opacity: 0,
@@ -166,10 +170,10 @@ const HomePage = () => {
           duration: 0.3
         })
 
-        document.querySelector('.c-scroll').classList.remove('fade')
-        document.querySelector('.vertical-normal').classList.add('fade')
+        refScroll.current.classList.remove('fade')
+        refNormal.current.classList.add('fade')
       } else {
-        document.querySelector('.vertical-normal').classList.remove('fade')
+        refNormal.current.classList.remove('fade')
       }
     }
 
@@ -197,11 +201,70 @@ const HomePage = () => {
         onEnterBack: () => goToSection(section, i)
       })
     })
+
+    // anchor section click
+    let links = gsap.utils.toArray('.c-header__center a')
+    links.forEach((a) => {
+      let element = document.querySelector(a.getAttribute('href')),
+        linkST = ScrollTrigger.create({
+          trigger: element,
+          start: 'top top'
+        })
+      ScrollTrigger.create({
+        trigger: element,
+        start: 'top center',
+        end: 'bottom center'
+      })
+
+      a.addEventListener('click', (e) => {
+        e.preventDefault()
+        if (scrolling.enabled) {
+          scrolling.disable()
+          gsap.to(window, {
+            duration: 1,
+            scrollTo: linkST.start,
+            overwrite: 'auto',
+            onComplete: scrolling.enable
+          })
+        }
+      })
+    })
+  }, [])
+
+  useEffect(() => {
+    const onScroll = () => {
+      if (window.scrollY === refProjects.current.offsetTop) {
+        refScroll.current.classList.add('fade')
+
+        gsap.to('.intro', {
+          opacity: 0,
+          duration: 0.5
+        })
+        gsap.to('.projects__title', {
+          opacity: 1,
+          delay: 0.5,
+          duration: 0.5
+        })
+      } else if (window.scrollY >= refNormal.current.offsetTop) {
+        refNormal.current.classList.add('fade')
+
+        gsap.to('.projects__title', {
+          opacity: 0,
+          duration: 0.3
+        })
+      } else {
+        refNormal.current.classList.remove('fade')
+      }
+    }
+    // clean up code
+    window.removeEventListener('scroll', onScroll)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
   return (
     <>
-      <div className='c-scroll'>
+      <div className='c-scroll' ref={refScroll}>
         <div className='line'>
           <span></span>
         </div>
@@ -214,11 +277,11 @@ const HomePage = () => {
         <section className='vertical-scrolling vertical-intro'>
           <Intro />
         </section>
-        <section className='vertical-scrolling vertical-projects'>
+        <section className='vertical-scrolling vertical-projects' ref={refProjects}>
           <Projects />
         </section>
 
-        <section className='vertical-scrolling vertical-normal'>
+        <section className='vertical-scrolling vertical-normal' ref={refNormal}>
           <Philosophy />
           <Company />
         </section>
