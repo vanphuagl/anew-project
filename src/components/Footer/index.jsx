@@ -12,7 +12,7 @@ const Footer = () => {
       <Link to='https://www.websitecarbon.com/' target='_blank' className='c-footer__center'>
         * This website emits 0.03g of CO2 per view.
       </Link>
-      <p className='c-footer__right'>©︎ 2023 anew inc.</p>
+      <p className='c-footer__right'>©︎ 2024 anew inc.</p>
     </footer>
   )
 }
