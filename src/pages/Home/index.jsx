@@ -246,12 +246,13 @@ const HomePage = () => {
           duration: 0.5
         })
       } else if (window.scrollY >= refNormal.current.offsetTop) {
-        refNormal.current.classList.add('fade')
-
+        refScroll.current.classList.remove('fade')
         gsap.to('.projects__title', {
           opacity: 0,
           duration: 0.3
         })
+
+        refNormal.current.classList.add('fade')
       } else {
         refNormal.current.classList.remove('fade')
       }
