@@ -685,7 +685,7 @@ const Intro = () => {
                 One thousand years.
               </h2>
               <p>
-                <span>1,000</span>年先の未来を想像しながら、
+                1,000年先の未来を想像しながら、
                 <br />
                 身の回りから変化を。
               </p>
