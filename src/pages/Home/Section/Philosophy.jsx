@@ -114,9 +114,9 @@ const Philosophy = () => {
 
             <p>
               We would like to keep thinking ways to positively overcome these contradictions that exist in the world.
-              Create things by continuing dialogue with the openness mind that comes from embracing the contradictions.
-              We deny division and exclusion. And we seek to find the best solution that will not abandon anyone as much
-              as possible, lightly and powerfully by valuing sense.
+              Create things by continuing dialogue with the tolerant openness that comes from embracing the
+              contradictions. We deny division and exclusion. And we seek to find the best solution that will not
+              abandon anyone as much as possible, lightly and powerfully by valuing "sense".
             </p>
           </div>
 

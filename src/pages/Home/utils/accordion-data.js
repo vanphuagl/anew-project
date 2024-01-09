@@ -4,9 +4,9 @@ export const data = [
     subtitleEn: 'Atsuyuki Tsuchiya',
     subtitleJp: '土屋 敦之',
     textEn:
-      'Born 1967 in Nagano, Japan. After serving at Nomura Real Estate Development Co., Ltd, and MEGALOS(Japanese health and fitness clubs), he led the establishment of Anytime Fitness Japan since 2010 and oversaw the development and management of all operations. In 2017, appointed as President and Representative Director of Fast Fitness Japan Co., Ltd. After the retirement in 2023, he has joined anew as CEO.',
+      'Born 1967 in Nagano, Japan. After serving at Nomura Real Estate Development Co., Ltd, and MEGALOS(Japanese health and fitness clubs), he led the establishment of Anytime Fitness Japan since 2010 and oversaw the development and management of all operations. In 2017, appointed as President and Representative Director of Fast Fitness Japan Co., Ltd. After the retirement in 2023, he has joined anew inc. as CEO.',
     textJp:
-      '1967年長野県出身。 野村不動産株式会社、メガロスを経て、2010年より国内におけるエニタイムフィットネス創業の中心として全業務の開発・管理を統括する。 2017年、株式会社Fast Fitness Japanの代表取締役社長に就任。 2023年退任後、anewに参画。'
+      '1967年長野県出身。 野村不動産株式会社、メガロスを経て、2010年より国内におけるエニタイムフィットネス創業の中心として全業務の開発・管理を統括する。 2017年、株式会社Fast Fitness Japanの代表取締役社長に就任。 2023年退任後、anew inc.に参画。'
   },
   {
     title: 'Representative Director / COO',
@@ -22,9 +22,9 @@ export const data = [
     subtitleEn: 'Yusuke Osawa',
     subtitleJp: '⼤澤 佑介',
     textEn:
-      'Born 1979 in Osaka. At a creative production RCKT/Rocket company, dedicated to editing and project management. He has managed lots of brand visuals production, companiesʼ MVV, interior decoration of malls and art events. He also handles editing lots of books and magazines such as a lifestyle book “BEAMS AT HOME(sold over 370K books all over the world)” and visual books published by Rizzoli.',
+      'Born 1979 in Osaka. Joined anew inc. in 2023 while he has dedicated to editing and project management at a creative production RCKT/Rocket company*. He has managed lots of brand visuals production, companiesʼ MVV, interior decoration of malls and art events. He also handles editing lots of books and magazines such as a lifestyle book "BEAMS AT HOME(sold over 370K books all over the world)" and visual books published by Rizzoli.',
     textJp:
-      '1979年大阪出身。 クリエイティブプロダクションRCKT/Rocket Company*にて、編集制作、企画進行に従事。 ブランドビジュアル制作を中心に、企業のMVV資料、商業施設の館内装飾やアートイベントの進行も担当。 また、世界累計37万部のライフスタイル書籍『BEAMS AT HOME』やNYの出版社Rizzoli社から発行されるビジュアルブックなど、書籍・雑誌の編集制作も手がける。'
+      '1979年大阪出身。 クリエイティブプロダクションRCKT/Rocket Company*に在籍しながらanew inc.に参画。 RCKTでは編集制作、企画進行として、ブランドビジュアル制作を中心に、企業のMVV資料、商業施設の館内装飾やアートイベントも担当。 また、世界累計37万部のライフスタイル書籍『BEAMS AT HOME』やNYの出版社Rizzoli社から発行されるビジュアルブックなど、書籍・雑誌の編集制作も手がける。'
   },
   {
     title: 'Creative Director',
